@@ -13,8 +13,19 @@
 
 /* CoreUI templates */
 Route::view('/', 'templates.index');
-Route::view('/admin', 'admin.dashboard');
+Route::get('/admin', function () {
+    return view('admin.dashboard');
+})->middleware('auth');
 
+
+Route::get('login/{driver}', ['as' => 'socialAuth', 'uses' => 'Auth\SocialAccountController@redirectToProvider']);
+Route::get('login/{driver}/callback', ['as' => 'socialAuthCallback', 'uses' => 'Auth\SocialAccountController@handleProviderCallback']);
+
+Route::get('logout', function () {
+    Auth::logout();
+
+    return redirect('/');
+});
 
 
 // Section UI elements

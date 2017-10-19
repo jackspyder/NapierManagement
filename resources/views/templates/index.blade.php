@@ -1,6 +1,18 @@
 @extends('master')
 @section('content')
 
+    @if (Auth::guest())
+        <li><a href="login/github">Login</a></li>
+
+    @else
+
+        <p>name: {{ Auth::user()->name }}</p>
+        <p>id: {{ Auth::user()->id }}</p>
+        <p>github: {{ Auth::user()->github_id }}</p>
+        <img src="{{ Auth::user()->avatar }}">
+
+    @endif
+
 <div class="row">
     <div class="col-sm-6 col-lg-3">
         <div class="card card-inverse card-primary">
