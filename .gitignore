@@ -3,6 +3,7 @@
 /public/storage
 /storage/*.key
 /vendor
+/laradock-N
 /.idea
 /.vagrant
 Homestead.json

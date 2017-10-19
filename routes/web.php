@@ -13,6 +13,10 @@
 
 /* CoreUI templates */
 Route::view('/', 'templates.index');
+Route::view('/admin', 'admin.dashboard');
+
+
+
 // Section UI elements
 Route::view('/templates/buttons', 'templates.buttons');
 Route::view('/templates/social', 'templates.social');
@@ -31,3 +35,4 @@ Route::view('/templates/login', 'templates.login')->name('login');
 Route::view('/templates/register', 'templates.register')->name('register');
 Route::view('/templates/error404', 'templates.error404')->name('error404');
 Route::view('/templates/error500', 'templates.error500')->name('error500');
+Route::view('/templates/blank', 'layout.blank')->name('blank');

@@ -2,7 +2,46 @@
     <nav class="sidebar-nav">
         <ul class="nav">
             <li class="nav-item">
-                <a class="nav-link" href="{{ url('/') }}"><i class="icon-speedometer"></i> Dashboard <span class="badge badge-info">NEW</span></a>
+                <a class="nav-link" href="{{ url('/admin') }}"><i class="icon-speedometer"></i> Dashboard</a>
+            </li>
+
+            <li class="nav-title">
+                Administration
+            </li>
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-graduation"></i> Courses</a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="icon-list"></i> View Courses</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="icon-plus"></i> Add Course</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-location-pin"></i> Venues</a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="icon-list"></i> View Venues</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="icon-plus"></i> Add Venues</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-people"></i> Users</a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="icon-list"></i> View Users</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="icon-user-follow"></i> Add User</a>
+                    </li>
+                </ul>
             </li>
 
             <li class="nav-title">
