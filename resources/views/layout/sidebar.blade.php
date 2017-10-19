@@ -2,7 +2,7 @@
     <nav class="sidebar-nav">
         <ul class="nav">
             <li class="nav-item">
-                <a class="nav-link" href="{{ url('/admin') }}"><i class="icon-speedometer"></i> Dashboard</a>
+                <a class="nav-link" href="{{ url('/admin-dash') }}"><i class="icon-speedometer"></i> Dashboard</a>
             </li>
 
             <li class="nav-title">
@@ -36,7 +36,7 @@
                 <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-people"></i> Users</a>
                 <ul class="nav-dropdown-items">
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="icon-list"></i> View Users</a>
+                        <a class="nav-link" href="{{ route('users.index') }}"><i class="icon-list"></i> View Users</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#"><i class="icon-user-follow"></i> Add User</a>

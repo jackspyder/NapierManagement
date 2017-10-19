@@ -1,15 +1,19 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-use App\LinkedSocialAccount;
-use Socialite;
-use App\User;
 use App\SocialAccountsService;
+use Socialite;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class SocialAccountController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('guest');
+    }
+
     /**
      * Redirect the user to the GitHub authentication page.
      *
@@ -25,7 +29,7 @@ class SocialAccountController extends Controller
      *
      * @return Response
      */
-    public function handleProviderCallback(\App\SocialAccountsService $accountService, $provider)
+    public function handleProviderCallback(SocialAccountsService $accountService, $provider)
     {
 
         try {
