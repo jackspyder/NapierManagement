@@ -31,6 +31,6 @@ class User extends Authenticatable
 
 
     public function accounts(){
-        return $this->hasMany('App\LinkedSocialAccount');
+        return $this->hasMany(LinkedSocialAccount::class);
     }
 }

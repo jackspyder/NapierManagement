@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Venue;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class VenuesController extends Controller
 {
@@ -25,7 +26,7 @@ class VenuesController extends Controller
      */
     public function create()
     {
-        //
+        return view('venues.create');
     }
 
     /**
@@ -36,9 +37,22 @@ class VenuesController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $this->validate(request(), [
+            'name' => 'max:40|required',
+            'address' => 'max:60|required',
+            'city' => 'required',
+            'post_code' => 'required',
+            'location' => 'required',
+            'image' => 'required'
+        ]);
 
+
+        $venue = Venue::create($request->all());
+
+        Session::flash('message', 'Successfully created Venue!');
+        $venue->save();
+        return redirect('/admin/venues');
+    }
     /**
      * Display the specified resource.
      *

@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-use App\SocialAccountsService;
+
+
+use App\Models\SocialAccountsService;
 use Socialite;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class SocialAccountController extends Controller
