@@ -21,6 +21,7 @@ class CreateVenuesTable extends Migration
             $table->string('name');
             $table->string('location');
             $table->string('image');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -27,26 +27,18 @@ Route::get('login/{driver}/callback', ['as' => 'socialAuthCallback', 'uses' => '
 /* CoreUI templates */
 Route::view('/', 'templates.index');
 
-////////////////Admin//////////////
+
+////////////////Admin Section//////////////
 Route::group([ 'middleware' => [ 'web', 'auth' ] ], function () {
     Route::get('/admin-dash', 'AdminController@dashboard');
-});
 
-////////////////Users//////////////
-Route::group([ 'middleware' => [ 'web', 'auth' ] ], function () {
     Route::resource('admin/users', 'UsersController');
-    //Route::put('/users/{user}/restore', 'UsersController@restore');
-});
-
-////////////////Courses//////////////
-Route::group([ 'middleware' => [ 'web', 'auth' ] ], function () {
     Route::resource('admin/courses', 'CoursesController');
-});
-
-////////////////Venues//////////////
-Route::group([ 'middleware' => [ 'web', 'auth' ] ], function () {
+    Route::resource('admin/lessons', 'LessonsController');
     Route::resource('admin/venues', 'VenuesController');
 });
+
+
 
 
 

@@ -9,13 +9,25 @@
                 Administration
             </li>
             <li class="nav-item nav-dropdown">
-                <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-graduation"></i> Courses</a>
+                <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-chemistry"></i> Courses</a>
                 <ul class="nav-dropdown-items">
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('courses.index') }}"><i class="icon-list"></i> View Courses</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="icon-plus"></i> Add Course</a>
+                        <a class="nav-link" href="{{ route('courses.create') }}"><i class="icon-plus"></i> Add Course</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-graduation"></i> Lessons</a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('lessons.index') }}"><i class="icon-list"></i> View Lessons</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('lessons.create') }}"><i class="icon-plus"></i> Add Lesson</a>
                     </li>
                 </ul>
             </li>
@@ -24,10 +36,10 @@
                 <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-location-pin"></i> Venues</a>
                 <ul class="nav-dropdown-items">
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="icon-list"></i> View Venues</a>
+                        <a class="nav-link" href="{{ route('venues.index') }}"><i class="icon-list"></i> View Venues</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="icon-plus"></i> Add Venues</a>
+                        <a class="nav-link" href="{{ route('venues.create') }}"><i class="icon-plus"></i> Add Venues</a>
                     </li>
                 </ul>
             </li>

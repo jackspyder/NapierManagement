@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Venue;
+use App\Models\Lesson;
 use Illuminate\Http\Request;
 
-class VenuesController extends Controller
+class LessonsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class VenuesController extends Controller
      */
     public function index()
     {
-        $venues = Venue::all();
-        return view('venues.index', compact('venues'));
+        $lessons = Lesson::all();
+        return view('lessons.index', compact('lessons'));
     }
 
     /**
