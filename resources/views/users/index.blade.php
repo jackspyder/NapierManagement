@@ -6,65 +6,51 @@
 
 @section('content')
 
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="card">
-                <div class="card-header">
-                    <i class="fa fa-align-justify"></i> User List
-                </div>
-                <div class="card-block">
-                    <table class="table table-bordered table-striped table-sm">
-                        <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>E-Mail</th>
-                            <th>Date registered</th>
-                            <th>Role</th>
-                            <th>Action</th>
-                        </tr>
-                        </thead>
-                        <tbody>
+    <table class="table table-responsive table-hover table-outline">
+        <thead class="thead-default">
+        <tr>
+            <th class="text-center"><i class="icon-people"></i>
+            </th>
+            <th>User</th>
+            <th class="text-center">Role</th>
+            <th>E-Mail</th>
+            <th class="text-center">Linked via</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach($users as $user)
+            <tr>
+                <td class="text-center">
+                    <div class="avatar">
+                        <img src="{{ $user->active_avatar }}" class="img-avatar" alt="{{ $user->email }}">
+                    </div>
+                </td>
+                <td>
+                    <div>{{ $user->name }}</div>
+                    <div class="small text-muted">
+                        <span>New </span>| Registered: {{ $user->created_at }}
+                    </div>
+                </td>
+                <td class="text-center">
+                    Administrator
+                </td>
+                <td>
+                    {{ $user->email }}
+                </td>
+                <td class="text-center">
+                    @foreach($user->accounts as $account)
+                        <i class="fa fa-{{ $account->provider_name }}"></i>
+                    @endforeach
+                </td>
+                <td>
+                    <a href="/admin/users/{{ $user->id }}" class="btn-sm btn-success">View</a>
+                </td>
+            </tr><!--/tr-->
+        @endforeach
 
-                        @foreach($users as $user)
-                            <tr>
-                                <td>{{ $user->id }}</td>
-                                <td>{{ $user->name }}</td>
-                                <td>{{ $user->email }}</td>
-                                <td>{{ $user->created_at->diffForHumans() }}</td>
-                                <td>Member</td>
-                                <td>
-                                    <a href="/admin/users/{{ $user->id }}" class="btn-sm btn-success">View</a>
-                                </td>
-                            </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
-                    <nav>
-                        <ul class="pagination">
-                            <li class="page-item"><a class="page-link" href="#">Prev</a>
-                            </li>
-                            <li class="page-item active">
-                                <a class="page-link" href="#">1</a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">2</a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">3</a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">4</a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">Next</a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </div>
-        <!--/.col-->
-    </div>
-    <!--/.row-->
+        </tbody>
 
 
-
-
-@stop
+    </table>
+@endsection

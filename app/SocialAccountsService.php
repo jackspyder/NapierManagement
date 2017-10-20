@@ -35,6 +35,7 @@ class SocialAccountsService
                 'provider_id' => $providerUser->getId(),
                 'provider_avatar' => $providerUser->getAvatar(),
                 'provider_name' => $provider,
+                'active_avatar' => $providerUser->getAvatar()
             ]);
 
             return $user;

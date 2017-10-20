@@ -17,7 +17,7 @@
     <meta name="author" content="Łukasz Holeczek">
     <link rel="shortcut icon" href="{{ asset('img/favicon.png') }}">
 
-    <title>RVD | @yield('title')</title>
+    <title>NMT | @yield('title')</title>
 
     <!-- Icons -->
     <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
@@ -42,7 +42,7 @@
         <main class="main">
 
             <!-- Breadcrumb -->
-                @include('layout.breadcrumb')                
+                @include('layout.breadcrumb')
             <!-- End of Breadcrumb -->
 
             <!-- Content -->

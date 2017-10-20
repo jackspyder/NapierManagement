@@ -45,6 +45,6 @@ class SocialAccountController extends Controller
 
         auth()->login($authUser, true);
 
-        return redirect()->to('/admin');
+        return redirect()->to('/admin-dash');
     }
 }
