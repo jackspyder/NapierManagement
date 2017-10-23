@@ -61,7 +61,8 @@ class VenuesController extends Controller
      */
     public function show($id)
     {
-        //
+        $venue = Venue::findOrFail($id);
+        return view('venues.show', compact('venue'));
     }
 
     /**

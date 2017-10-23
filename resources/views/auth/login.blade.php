@@ -98,23 +98,42 @@
                     <div class="card-block text-center">
                         <div>
                             <h2>Sign up</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua.</p>
-                            <button type="button" class="btn btn-primary active mt-3">Register Now!</button>
+                            <p>Don't have an account? Click the Register Now! Button below to go to our registration page, or try one of the social media login options below!</p>
+                            <a href="/register" type="button" class="btn btn-primary active">Register Now!</a>
+                        </div>
+                    </div>
+
+                    <div class="card-footer">
+                        <div class="row">
+                            <h4 class="card-title text-center">Use Social Media Login!</h4>
+                            <div class="col-6">
+                                <a href="{{ url('/login/facebook') }}" class="btn btn-block btn-facebook">
+                                    <span>Facebook</span>
+                                </a>
+                            </div>
+                            <div class="col-6">
+                                <a href="{{ url('/login/google') }}" class="btn btn-block btn-google-plus">
+                                    <span>Google</span>
+                                </a>
+                            </div>
+
+                            <div class="col-6">
+                                <a href="{{ url('/login/linkedin') }}" class="btn btn-block btn-linkedin">
+                                    <span>Linkedin</span>
+                                </a>
+                            </div>
+
+                            <div class="col-6">
+                                <a href="{{ url('/login/github') }}" class="btn btn-block btn-github">
+                                    <span>Github</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <a href="{{ url('/login/github') }}" class="btn btn-github"><i class="fa fa-github"></i> Github</a>
-    <br>
-    <a href="{{ url('/login/google') }}" class="btn btn-google-plus"><i class="fa fa-google-plus"></i> Twitter</a>
-    <br>
-    <a href="{{ url('/login/facebook') }}" class="btn btn-facebook"><i class="fa fa-facebook"></i> Facebook</a>
-    <br>
-    <a href="{{ url('/login/linkedin') }}" class="btn btn-linkedin"><i class="fa fa-linkedin"></i> Linkedin</a>
-
 </div>
 
 <!-- Bootstrap and necessary plugins -->

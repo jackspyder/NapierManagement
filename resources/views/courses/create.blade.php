@@ -1,11 +1,98 @@
 @extends('master')
 
 @section('title')
-    Course List
+    Add Course
 @endsection
 
 @section('content')
+    <div class="container">
+    <h3>Add New Course</h3>
 
-    <h3>Course Page</h3>
+
+    {{ Form::open(['url' => '/admin/courses', 'method' => 'POST']) }}
+
+    <!-- if there are creation errors, they will show here -->
+        @if (count($errors) > 0)
+            <div class="alert alert-danger">
+                <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        {{--Main Panel content--}}
+
+
+            <div class="row col-md-8">
+
+                <!--column left-->
+                <div class="form-group col-md-8">
+                    <div class="form-group">
+                        {{ Form::label('price', 'Course Price (Pounds)') }}
+                        {{ Form::number('price', null, array('class' => 'form-control')) }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ Form::label('duration', 'Course Duration (Days)') }}
+                        {{ Form::number('duration', null, array('class' => 'form-control')) }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ Form::label('title', 'Course Title') }}
+                        {{ Form::text('title', null, array('class' => 'form-control')) }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ Form::label('qualification', 'Qualification') }}
+                        {{ Form::text('qualification', null, array('class' => 'form-control')) }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ Form::label('awarded_by', 'Awarding Body') }}
+                        {{ Form::text('awarded_by', null, array('class' => 'form-control')) }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ Form::label('overview', 'Course Overview') }}
+                        {{ Form::text('overview', null, array('class' => 'form-control')) }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ Form::label('description', 'Course Description') }}
+                        {{ Form::text('description', null, array('class' => 'form-control')) }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ Form::label('who_for', 'Who is this course for?') }}
+                        {{ Form::text('who_for', null, array('class' => 'form-control')) }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ Form::label('requirements', 'Requirements') }}
+                        {{ Form::text('requirements', null, array('class' => 'form-control')) }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ Form::label('career_path', 'Career Path') }}
+                        {{ Form::text('career_path', null, array('class' => 'form-control')) }}
+                    </div>
+
+                    {{ Form::submit('Submit Item', array('class' => 'btn btn-primary')) }}
+
+                </div>
+
+            </div>
+
+
+
+
+
+
+
+        {{ Form::close() }}
+    </div>
 
 @stop

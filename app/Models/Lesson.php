@@ -13,16 +13,18 @@ class Lesson extends Model
     protected $fillable = [
         'start_date',
         'capacity',
-        'spaces_left'
+        'spaces_left',
+        'course_id',
+        'venue_id'
     ];
 
     public function venue()
     {
-        return $this->hasOne(Venue::class);
+        return $this->belongsTo(Venue::class);
     }
 
     public function course()
     {
-        return $this->hasOne(Course::class);
+        return $this->belongsTo(Course::class);
     }
 }
