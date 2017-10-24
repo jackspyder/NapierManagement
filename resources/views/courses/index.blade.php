@@ -36,7 +36,7 @@
                                 <td>{{ $course->title }}</td>
                                 <td>{{ $course->price }}</td>
                                 <td>{{ $course->duration }}</td>
-                                <td>0</td>
+                                <td>{{ $course->lessons->count() }}</td>
                                 <td><a href="/admin/courses/{{ $course->id }}" class="btn-sm btn-success">View</a></td>
                             </tr>
                         @endforeach
