@@ -43,12 +43,8 @@ class LessonsController extends Controller
      */
     public function store(Request $request)
     {
-//        dd($request);
         $lesson = new Lesson;
 
-
-//        $lesson->venue_id = $request['venue_id'];
-//        $lesson->course_id = $request['course_id'];
         $lesson->spaces_left = $request['capacity'];
         $lesson->start_date = $request['start_date'];
         $lesson->capacity = $request['capacity'];
@@ -61,7 +57,6 @@ class LessonsController extends Controller
 
         return redirect('/admin/lessons');
 
-//        $lesson->course()->attach($lesson);
     }
 
     /**
@@ -74,6 +69,8 @@ class LessonsController extends Controller
     {
         $lesson = Lesson::findOrFail($id);
         return view('lessons.show', compact('lesson'));
+
+
     }
 
     /**
@@ -84,7 +81,14 @@ class LessonsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $lesson = Lesson::findOrFail($id);
+
+        $courses = Course::pluck('title', 'id');
+        $venues = Venue::pluck('name', 'id');
+
+        return view('lessons.edit', compact('lesson','venues', 'courses'));
+
+
     }
 
     /**
@@ -96,7 +100,19 @@ class LessonsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $lesson = Lesson::findOrFail($id);
+
+        $lesson->spaces_left = $request['capacity'];
+        $lesson->start_date = $request['start_date'];
+        $lesson->capacity = $request['capacity'];
+        $lesson->course_id = $request['course_id'];
+        $lesson->venue_id = $request['venue_id'];
+
+        $lesson->save();
+
+        Session::flash('message', 'Successfully updated Lesson!');
+
+        return redirect('/admin/lessons');
     }
 
     /**
