@@ -25,7 +25,7 @@ Route::get('login/{driver}/callback', ['as' => 'socialAuthCallback', 'uses' => '
 
 
 /* CoreUI templates */
-Route::view('/', 'templates.index');
+Route::view('/', 'admin.dashboard');
 
 
 ////////////////Admin Section//////////////

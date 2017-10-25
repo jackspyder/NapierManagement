@@ -38,12 +38,12 @@ class VenuesController extends Controller
     public function store(Request $request)
     {
         $this->validate(request(), [
-            'name' => 'max:40|required',
+            'name' => 'max:80|required',
             'address' => 'max:60|required',
             'city' => 'required',
             'post_code' => 'required',
             'location' => 'required',
-            'image' => 'required'
+            'image' => 'nullable'
         ]);
 
 
@@ -73,7 +73,9 @@ class VenuesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $venue = Venue::findOrFail($id);
+
+        return view('venues.edit', compact('venue'));
     }
 
     /**
@@ -85,7 +87,22 @@ class VenuesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $venue = Venue::findOrFail($id);
+
+        $this->validate(request(), [
+            'name' => 'max:80|required',
+            'address' => 'max:60|required',
+            'city' => 'required',
+            'post_code' => 'required',
+            'location' => 'required',
+            'image' => 'nullable'
+        ]);
+
+        $venue->update($request->all());
+
+        Session::flash('message', 'Successfully updated Venue!');
+        $venue->save();
+        return redirect('/admin/venues');
     }
 
     /**
