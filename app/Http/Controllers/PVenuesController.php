@@ -1,11 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Course;
 
+
+use App\Models\Venue;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
-class PCoursesController extends Controller
+class PVenuesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +16,8 @@ class PCoursesController extends Controller
      */
     public function index()
     {
-        $courses = Course::all();
-        return view('public.courses.index', compact('courses'));
+        $venues = Venue::all();
+        return view('public.venues.index', compact('venues'));
     }
 
     /**
@@ -26,7 +28,7 @@ class PCoursesController extends Controller
      */
     public function show($id)
     {
-        $course = Course::findOrFail($id);
-        return view('courses.show', compact('course'));
+        $venue = Venue::findOrFail($id);
+        return view('public.venues.show', compact('venue'));
     }
 }

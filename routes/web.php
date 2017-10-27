@@ -31,6 +31,8 @@ Route::view('/', 'admin.dashboard');
 Route::group(['middleware' => ['web']], function (){
     Route::get('/courses', 'PCoursesController@index');
 
+    Route::get('/venues', 'PVenueController@index');
+
 });
 
 

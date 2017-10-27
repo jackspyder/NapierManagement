@@ -20,7 +20,7 @@
     @yield('stylesheet')
 
 </head>
-<body class="app header-fixed aside-menue-hidden">
+<body class="app header-fixed aside-menu-hidden">
 <!-- Navbar-->
 @include('public.layout.header')
 <div class="app-body">

@@ -6,14 +6,19 @@
             <a class="nav-link navbar-toggler sidebar-toggler" href="#">☰</a>
         </li>
 
+
         <li class="nav-item px-3">
-            <a class="nav-link" href="{{ url('/') }}">Dashboard</a>
+            <a class="nav-link" href="{{ url('/') }}">Home</a>
+        </li>
+
+        <li class="nav-item px-3">
+            <a class="nav-link" href="{{ url('/courses') }}">Courses</a>
         </li>
         <li class="nav-item px-3">
-            <a class="nav-link" href="#">Users</a>
+            <a class="nav-link" href="{{ url('venues') }}">Venues</a>
         </li>
         <li class="nav-item px-3">
-            <a class="nav-link" href="#">Settings</a>
+            <a class="nav-link" href="{{ url('/basket') }}">Basket</a>
         </li>
     </ul>
     @if(Auth::guest())
