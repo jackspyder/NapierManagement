@@ -71,7 +71,7 @@
     <!-- End of Footer -->
 
     <!-- Scripts -->
-        @include('layout.scripts')
+        @include('layout.scripts')l
         @yield('scripts')
     <!-- End of Scripts -->
     

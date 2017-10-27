@@ -28,6 +28,14 @@ Route::get('login/{driver}/callback', ['as' => 'socialAuthCallback', 'uses' => '
 Route::view('/', 'admin.dashboard');
 
 
+Route::group(['middleware' => ['web']], function (){
+    Route::get('/courses', 'PCoursesController@index');
+
+});
+
+
+
+
 ////////////////Admin Section//////////////
 Route::group([ 'middleware' => [ 'web', 'auth' ] ], function () {
     Route::get('/admin-dash', 'AdminController@dashboard');
