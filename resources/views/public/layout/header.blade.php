@@ -55,6 +55,7 @@
 
                     <a class="dropdown-item" href="#"><i class="fa fa-user"></i> Profile</a>
                     <a class="dropdown-item" href="#"><i class="fa fa-wrench"></i> Settings</a>
+                    <a class="dropdown-item" href="{{ url('admin/dash') }}"><i class="fa fa-key"></i> Admin Section</a>
                     <a class="dropdown-item" href="#"><i class="fa fa-usd"></i> Basket<span class="badge badge-default">2</span></a>
                     <div class="divider"></div>
                     <a class="dropdown-item" href="/logout"><i class="fa fa-lock"></i> Logout</a>

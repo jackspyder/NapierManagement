@@ -30,8 +30,14 @@ Route::view('/', 'admin.dashboard');
 
 Route::group(['middleware' => ['web']], function (){
     Route::get('/courses', 'PCoursesController@index');
+    Route::get('/courses/{course}', 'PCoursesController@show');
 
-    Route::get('/venues', 'PVenueController@index');
+    Route::get('/venues', 'PVenuesController@index');
+    Route::get('/venues/{venue}', 'PVenuesController@show');
+
+
+    Route::get('/lessons', 'PLessonsController@index');
+    Route::get('/lessons/{lesson}', 'PLessonsController@show');
 
 });
 
@@ -40,7 +46,7 @@ Route::group(['middleware' => ['web']], function (){
 
 ////////////////Admin Section//////////////
 Route::group([ 'middleware' => [ 'web', 'auth' ] ], function () {
-    Route::get('/admin-dash', 'AdminController@dashboard');
+    Route::get('/admin/dash', 'AdminController@dashboard');
 
     Route::resource('admin/users', 'UsersController');
     Route::resource('admin/courses', 'CoursesController');

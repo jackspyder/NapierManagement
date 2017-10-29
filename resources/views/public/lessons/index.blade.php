@@ -38,7 +38,7 @@
                         </thead>
                         <tbody>
                         @foreach($lessons as $lesson)
-                            <tr>
+                            <tr>s
                                 <td>{{ $lesson->course->title }}</td>
                                 <td>{{ $lesson->venue->name }}</td>
                                 <td>{{ $lesson->start_date }}</td>
