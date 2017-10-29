@@ -1,7 +1,7 @@
-@extends('master')
+@extends('public')
 
 @section('title')
-    Active Lessons List
+    Active Classes List
 @endsection
 
 @section('content')
@@ -16,13 +16,12 @@
         </div>
     @endif
 
-    <h3>Active Lessons Page</h3>
 
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <i class="fa fa-align-justify"></i> Lesson List
+                    <i class="fa fa-align-justify"></i> List of Classes
                 </div>
                 <div class="card-block">
                     <table class="table table-bordered table-striped table-sm">
@@ -38,7 +37,7 @@
                         </thead>
                         <tbody>
                         @foreach($lessons as $lesson)
-                            <tr>s
+                            <tr>
                                 <td>{{ $lesson->course->title }}</td>
                                 <td>{{ $lesson->venue->name }}</td>
                                 <td>{{ $lesson->start_date }}</td>

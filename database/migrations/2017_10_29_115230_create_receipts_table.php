@@ -15,6 +15,8 @@ class CreateReceiptsTable extends Migration
     {
         Schema::create('receipts', function (Blueprint $table) {
             $table->increments('id');
+            //user_id
+            //pivot for lessons
             $table->timestamps();
         });
     }

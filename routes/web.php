@@ -58,7 +58,6 @@ Route::group([ 'middleware' => [ 'web', 'auth' ] ], function () {
 
 
 
-
 // Section UI elements
 Route::view('/templates/buttons', 'templates.buttons');
 Route::view('/templates/social', 'templates.social');

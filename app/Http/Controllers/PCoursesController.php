@@ -27,6 +27,6 @@ class PCoursesController extends Controller
     public function show($id)
     {
         $course = Course::findOrFail($id);
-        return view('courses.show', compact('course'));
+        return view('public.courses.show', compact('course'));
     }
 }

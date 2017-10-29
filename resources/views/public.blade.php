@@ -31,7 +31,7 @@
 
         <div class="container-fluid">
             <div class="animated fadeIn">
-                @yield('content')#
+                @yield('content')
             </div>
         </div>
     </main>
