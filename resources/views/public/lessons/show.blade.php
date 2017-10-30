@@ -96,10 +96,11 @@
                                 </div>
 
                                 <div class="col-3">
-                                    <a href="/courses/{{ $lesson->course->id }}" class="btn btn-primary">Course Overview</a>
+                                    <a href="/courses/{{ $lesson->course->id }}" class="btn btn-primary">Course
+                                        Overview</a>
                                 </div>
                                 <div class="col-3">
-                                @if(Auth::guest())
+                                    @if(Auth::guest())
                                         <a href="/login" class="btn btn-primary">Login to Book</a>
                                     @else
                                         {{ Form::model($lesson, array('action' => array('BookingsController@update', $lesson->id), 'method' => 'PATCH')) }}

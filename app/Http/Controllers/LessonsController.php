@@ -102,9 +102,10 @@ class LessonsController extends Controller
     {
         $lesson = Lesson::findOrFail($id);
 
-        $lesson->spaces_left = $request['capacity'];
-        $lesson->start_date = $request['start_date'];
         $lesson->capacity = $request['capacity'];
+        $lesson->spaces_left = $request['capacity'] - $lesson->users()->count();
+        $lesson->start_date = $request['start_date'];
+
         $lesson->course_id = $request['course_id'];
         $lesson->venue_id = $request['venue_id'];
 
