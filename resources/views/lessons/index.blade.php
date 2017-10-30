@@ -44,7 +44,7 @@
                                 <td>{{ $lesson->start_date }}</td>
                                 <td>{{ $lesson->capacity }}</td>
                                 <td>{{ $lesson->spaces_left }}</td>
-                                <td><a href="/lessons/{{ $lesson->id }}" class="btn-sm btn-success">View</a></td>
+                                <td><a href="/admin/lessons/{{ $lesson->id }}" class="btn-sm btn-success">View</a></td>
                             </tr>
                         @endforeach
 

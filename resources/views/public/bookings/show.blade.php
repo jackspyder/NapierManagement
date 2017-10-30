@@ -1,27 +1,13 @@
 @extends('public')
 
-@section('title')
-    Active Classes List
-@endsection
+@yield('title')
 
 @section('content')
-
-    <!-- will be used to show any messages -->
-    @if (Session::has('message'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{ Session::get('message') }}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-    @endif
-
-
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <i class="fa fa-align-justify"></i> List of Classes
+                    <i class="fa fa-align-justify"></i> Lesson List
                 </div>
                 <div class="card-block">
                     <table class="table table-bordered table-striped table-sm">
@@ -36,7 +22,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($lessons as $lesson)
+                        @foreach($user->lessons as $lesson)
                             <tr>
                                 <td>{{ $lesson->course->title }}</td>
                                 <td>{{ $lesson->venue->name }}</td>
@@ -55,4 +41,4 @@
         <!--/.col-->
     </div>
     <!--/.row-->
-@stop
+@endsection

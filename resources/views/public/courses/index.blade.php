@@ -17,15 +17,46 @@
                         <div class="card-block">
                             <blockquote class="card-blockquote">
 
-                                <ul class="list">
-                                    <li><b>Course Title: </b>{{ $course->title }}</li>
-                                    <li><b>Price of Course: </b>£{{ $course->price }}</li>
-                                    <li><b>Qualification Gained: </b>{{ $course->qualification }}</li>
-                                    <li><b>Awarding Body: </b>{{ $course->awarded_by }}</li>
-                                    <li><b>Course Duration: </b>{{ $course->duration }} days</li>
-                                </ul>
+                                <div class="row">
+                                    <div class="col-3 info-heading">
+                                        <strong>Course Title: </strong>
+                                    </div>
+                                    <div class="col-3 info-body">{{ $course->title }}</div>
+                                </div>
 
-                                <p>{{ $course->overview }}</p>
+                                <div class="row">
+                                    <div class="col-3 info-heading">
+                                        <strong>Price of Course: </strong>
+                                    </div>
+                                    <div class="col-3 info-body">£{{ $course->price }}</div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-3 info-heading">
+                                        <strong>Qualification Gained: </strong>
+                                    </div>
+                                    <div class="col-3 info-body">{{ $course->qualification}}</div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-3 info-heading">
+                                        <strong>Awarding Body: </strong>
+                                    </div>
+                                    <div class="col-3 info-body">{{ $course->awarded_by}}</div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-3 info-heading">
+                                        <strong>Course Duration: </strong>
+                                    </div>
+                                    <div class="col-3 info-body">{{ $course->duration }} days</div>
+                                </div>
+
+                                <hr>
+
+                                <h4>Course Overview: </h4>
+
+                                <p>{!! $course->overview !!}</p>
 
                                 <a href="/courses/{{ $course->id }}" class="btn btn-primary fa-pull-right">View
                                     Course</a>

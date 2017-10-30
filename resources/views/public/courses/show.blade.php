@@ -8,11 +8,10 @@
 
 
     <div class="container">
-        <a href="/lessons" class="btn btn-primary fa-pull-right">View Available Classes</a>
+        <a href="/classes" class="btn btn-primary fa-pull-right">View Available Classes</a>
         <div class="row">
 
             <div class="col-md-12">
-
 
 
                 <div class="card">
@@ -22,13 +21,40 @@
                     <div class="card-block">
                         <blockquote class="card-blockquote">
 
-                            <ul class="list">
-                                <li><b>Course Title: </b>{{ $course->title }}</li>
-                                <li><b>Price of Course: </b>£{{ $course->price }}</li>
-                                <li><b>Qualification Gained: </b>{{ $course->qualification }}</li>
-                                <li><b>Awarding Body: </b>{{ $course->awarded_by }}</li>
-                                <li><b>Course Duration: </b>{{ $course->duration }} days</li>
-                            </ul>
+                            <div class="row">
+                                <div class="col-3 info-heading">
+                                    <strong>Course Title: </strong>
+                                </div>
+                                <div class="col-3 info-body">{{ $course->title }}</div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-3 info-heading">
+                                    <strong>Price of Course: </strong>
+                                </div>
+                                <div class="col-3 info-body">£{{ $course->price }}</div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-3 info-heading">
+                                    <strong>Qualification Gained: </strong>
+                                </div>
+                                <div class="col-3 info-body">{{ $course->qualification}}</div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-3 info-heading">
+                                    <strong>Awarding Body: </strong>
+                                </div>
+                                <div class="col-3 info-body">{{ $course->awarded_by}}</div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-3 info-heading">
+                                    <strong>Course Duration: </strong>
+                                </div>
+                                <div class="col-3 info-body">{{ $course->duration }} days</div>
+                            </div>
 
                         </blockquote>
                     </div>
@@ -41,7 +67,7 @@
                     <div class="card-block">
                         <blockquote class="card-blockquote">
 
-                            {{ $course->overview }}
+                            {!! $course->overview !!}
 
                         </blockquote>
                     </div>
@@ -54,7 +80,7 @@
                     <div class="card-block">
                         <blockquote class="card-blockquote">
 
-                            {{ $course->description }}
+                            {!! $course->description !!}
 
                         </blockquote>
                     </div>
@@ -67,7 +93,7 @@
                     <div class="card-block">
                         <blockquote class="card-blockquote">
 
-                            {{ $course->who_for }}
+                            {!! $course->who_for !!}
 
                         </blockquote>
                     </div>
@@ -80,7 +106,7 @@
                     <div class="card-block">
                         <blockquote class="card-blockquote">
 
-                            {{ $course->requirements }}
+                            {!! $course->requirements !!}
 
                         </blockquote>
                     </div>
@@ -93,7 +119,7 @@
                     <div class="card-block">
                         <blockquote class="card-blockquote">
 
-                            {{ $course->career_path}}
+                            {!! $course->career_path !!}
 
                         </blockquote>
                     </div>

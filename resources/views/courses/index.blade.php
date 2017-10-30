@@ -17,9 +17,6 @@
     @endif
 
 
-
-    <h3>Courses Page</h3>
-
     <div class="row">
         <div class="col-lg-12">
             <div class="card">

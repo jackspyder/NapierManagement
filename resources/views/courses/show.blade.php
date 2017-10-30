@@ -9,12 +9,12 @@
     <h3>Course View Page</h3>
 
     <div class="container">
-
+        <a href="/admin/courses/{{ $course->id }}/edit" class="btn btn-primary fa-pull-right">Edit Course</a>
         <div class="row">
 
-            <div class="col-md-10">
+            <div class="col-md-12">
 
-                <a href="/admin/courses/{{ $course->id }}/edit" class="btn btn-primary fa-pull-right">Edit Course</a>
+
 
                 <div class="card">
                     <div class="card-header">

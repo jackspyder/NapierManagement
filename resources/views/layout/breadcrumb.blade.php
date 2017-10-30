@@ -1,15 +1,19 @@
 <ol class="breadcrumb">
-    <li class="breadcrumb-item">Home</li>
-    <li class="breadcrumb-item"><a href="#">Admin</a>
-    </li>
-    <li class="breadcrumb-item active">Dashboard</li>
 
-    <!-- Breadcrumb Menu-->
-    <li class="breadcrumb-menu d-md-down-none">
-        <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-            <a class="btn btn-secondary" href="#"><i class="icon-speech"></i></a>
-            <a class="btn btn-secondary" href="./"><i class="icon-graph"></i> &nbsp;Dashboard</a>
-            <a class="btn btn-secondary" href="#"><i class="icon-settings"></i> &nbsp;Settings</a>
-        </div>
+    <li class="breadcrumb-item">
+        <a href="{{ route('home') }}">Home</a>
     </li>
+    @php
+        $link = url('/');
+    @endphp
+
+    @for($i = 1; $i <= count(Request::segments()); $i++)
+        <li class="breadcrumb-item">
+            @if($i < count(Request::segments()) & $i > 0) <?php $link .= "/" . Request::segment($i); ?>
+            <a href="<?= $link ?>">{{ title_case(Request::segment($i)) }}</a>
+            @else {{ title_case(Request::segment($i)) }}
+            @endif
+        </li>
+    @endfor
+
 </ol>

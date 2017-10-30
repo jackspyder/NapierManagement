@@ -22,12 +22,14 @@
 </head>
 <body class="app header-fixed aside-menu-hidden">
 <!-- Navbar-->
-@include('public.layout.header')
+@include('layout.header')
 <div class="app-body">
+
+
 
     <main class="main">
 
-        @include('public.layout.breadcrumb')
+        @include('layout.breadcrumb')
 
         <div class="container-fluid">
             <div class="animated fadeIn">

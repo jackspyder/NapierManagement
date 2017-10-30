@@ -2,10 +2,6 @@
     <button class="navbar-toggler mobile-sidebar-toggler d-lg-none" type="button">☰</button>
     <a class="navbar-brand" href="{{ url('/') }}"></a>
     <ul class="nav navbar-nav d-md-down-none">
-        <li class="nav-item">
-            <a class="nav-link navbar-toggler sidebar-toggler" href="#">☰</a>
-        </li>
-
 
         <li class="nav-item px-3">
             <a class="nav-link" href="{{ url('/') }}">Home</a>
@@ -15,7 +11,7 @@
             <a class="nav-link" href="{{ url('/courses') }}">Courses</a>
         </li>
         <li class="nav-item px-3">
-            <a class="nav-link" href="{{ url('venues') }}">Venues</a>
+            <a class="nav-link" href="{{ url('/venues') }}">Venues</a>
         </li>
         <li class="nav-item px-3">
             <a class="nav-link" href="{{ url('/basket') }}">Basket</a>
