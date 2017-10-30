@@ -1,9 +1,36 @@
-
-// Fonts
-@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
-
-// Variables
-@import "variables";
+//
+//// Fonts
+//@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+//
+//// Variables
+//@import "variables";
 
 // Bootstrap
-@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+//@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+
+
+// Styling for the services section
+#services {
+  .fa-primary {
+    color: #ff9e4f;
+  }
+}
+
+.service-heading {
+  margin: 15px 0;
+  text-transform: none;
+}
+
+.carousel-item{
+  img {
+    height: 400px;
+    margin-left: 150px;
+    margin-right: 150px;
+  }
+}
+
+.alert-warning
+{
+  margin-left: 150px;
+  margin-right: 150px;
+}

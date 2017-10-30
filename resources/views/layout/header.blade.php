@@ -24,12 +24,12 @@
     @if(Auth::guest())
         <ul class="nav navbar-nav ml-auto">
             <li class="nav-item d-md-down-none">
-                <a class="nav-link navbar-toggler aside-menu-toggler" href="/login">Login</a>
+                <a class="nav-link navbar-toggler" href="/login">Login |</a>
             </li>
 
 
             <li class="nav-item d-md-down-none">
-                <a class="nav-link navbar-toggler aside-menu-toggler" href="/register">Register</a>
+                <a class="nav-link navbar-toggler" href="/register"> Register</a>
             </li>
         </ul>
 
@@ -45,7 +45,7 @@
                 <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button"
                    aria-haspopup="true" aria-expanded="false">
                     <img src="{{ Auth::user()->active_avatar }}" class="img-avatar" alt="{{ Auth::user()->email }}">
-                    <span class="d-md-down-none">Options</span>
+                    <span class="d-md-down-none">Options  </span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
 
@@ -53,11 +53,11 @@
                         <strong>Settings</strong>
                     </div>
 
-                    <a class="dropdown-item" href="#"><i class="fa fa-user"></i> Profile</a>
+                    <a class="dropdown-item" href="/profile/{{ Auth::user()->id }}"><i class="fa fa-user"></i> Profile</a>
 
-                    <a class="dropdown-item" href="/bookings"><i class="fa fa-archive"></i> Bookings</a>
+                    <a class="dropdown-item" href="/bookings/"><i class="fa fa-archive"></i> Bookings</a>
                     {{--<a class="dropdown-item" href="#"><i class="fa fa-wrench"></i> Settings</a>--}}
-                    <a class="dropdown-item" href="{{ url('admin') }}"><i class="fa fa-key"></i> Admin Section</a>
+                    <a class="dropdown-item" href="{{ url('/admin') }}"><i class="fa fa-key"></i> Admin Section</a>
                     {{--<a class="dropdown-item" href="#"><i class="fa fa-usd"></i> Basket<span class="badge badge-default">2</span></a>--}}
                     <div class="divider"></div>
                     <a class="dropdown-item" href="/logout"><i class="fa fa-lock"></i> Logout</a>

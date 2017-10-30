@@ -33,7 +33,11 @@
                     </div>
                 </td>
                 <td class="text-center">
-                    Administrator
+                    @if($user->is_admin ==  1)
+                        Administrator
+                    @else
+                        Member
+                    @endif
                 </td>
                 <td>
                     {{ $user->email }}

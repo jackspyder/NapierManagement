@@ -99,9 +99,9 @@ class VenuesController extends Controller
         ]);
 
         $venue->update($request->all());
-
-        Session::flash('message', 'Successfully updated Venue!');
         $venue->save();
+        Session::flash('message', 'Successfully updated Venue!');
+
         return redirect('/admin/venues');
     }
 
