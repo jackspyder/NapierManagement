@@ -43,6 +43,12 @@ class LessonsController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'start_date' => 'required|date|after:tomorrow',
+            'capacity' => 'required|min:1|max:40',
+            'spaces_left' => 'required|min:1|max:40'
+        ]);
+
         $lesson = new Lesson;
 
         $lesson->spaces_left = $request['capacity'];
@@ -100,6 +106,13 @@ class LessonsController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        $request->validate([
+            'start_date' => 'required|date|after:tomorrow',
+            'capacity' => 'required|min:1|max:40',
+            'spaces_left' => 'required|min:1|max:40'
+        ]);
+
         $lesson = Lesson::findOrFail($id);
 
         $lesson->capacity = $request['capacity'];
