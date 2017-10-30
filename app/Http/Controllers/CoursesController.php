@@ -33,6 +33,7 @@ class CoursesController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -78,7 +79,9 @@ class CoursesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $course = Course::findOrFail($id);
+
+        return view('courses.edit', compact('course'));
     }
 
     /**
@@ -90,7 +93,26 @@ class CoursesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $course = Course::findOrFail($id);
+
+        $this->validate(request(), [
+            'price' => 'numeric|required',
+            'duration' => 'integer|required',
+            'title' => 'required',
+            'qualification' => 'required',
+            'awarded_by' => 'required',
+            'overview' => 'required',
+            'description' => 'required',
+            'who_for' => 'required',
+            'requirements' => 'required',
+            'career_path' => 'required'
+        ]);
+
+        $course->update($request->all());
+
+        Session::flash('message', 'Successfully updated Course!');
+        $course->save();
+        return redirect('/admin/courses');
     }
 
     /**

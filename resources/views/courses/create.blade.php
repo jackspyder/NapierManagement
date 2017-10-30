@@ -12,7 +12,6 @@
     <div class="container">
         <h3>Add New Course</h3>
 
-
     {{ Form::open(['url' => '/admin/courses', 'method' => 'POST']) }}
 
     <!-- if there are creation errors, they will show here -->
@@ -28,8 +27,6 @@
         @endif
 
         {{--Main Panel content--}}
-
-
         <div class="row col-md-8">
 
             <!--column left-->
@@ -84,12 +81,11 @@
                     {{ Form::text('career_path', null, array('class' => 'form-control')) }}
                 </div>
 
-                {{ Form::submit('Submit Item', array('class' => 'btn btn-primary')) }}
+                {{ Form::submit('Submit Course', array('class' => 'btn btn-primary')) }}
 
             </div>
 
         </div>
-
 
         {{ Form::close() }}
     </div>

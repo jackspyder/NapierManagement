@@ -1,20 +1,31 @@
 @extends('master')
 
 @section('title')
-    Dashboard
+    Admin Dash
 @endsection
 
 @section('content')
 
 
-    <h3>Admin Dash</h3>
+    <div class="container">
+        <div class="row">
 
-    @if (Auth::guest())
-        <li><a href="login/github">Login</a></li>
+            <div class="col-md-12">
 
-    @else
+                <div class="card">
+                    <div class="card-header">
+                        <b>Welcome!</b>
+                    </div>
+                    <div class="card-block">
+                        <blockquote class="card-blockquote">
 
-        <p>{{ Auth::user() }}</p>
-        <p> {{ Auth::user()->accounts }}</p>
-    @endif
+                            <p>Welcome to the Admin dashboard.</p>
+
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 @stop

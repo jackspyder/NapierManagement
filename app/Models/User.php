@@ -30,7 +30,13 @@ class User extends Authenticatable
     ];
 
 
-    public function accounts(){
+    public function accounts()
+    {
         return $this->hasMany(LinkedSocialAccount::class);
+    }
+
+    public function lessons()
+    {
+        return $this->belongsToMany(Lesson::class);
     }
 }

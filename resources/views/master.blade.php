@@ -24,7 +24,7 @@
     <link href="{{ asset('css/simple-line-icons.css') }}" rel="stylesheet">
     <!-- Main styles for this application -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-    
+
     @yield('stylesheet')
 
 </head>
@@ -46,9 +46,9 @@
             <!-- End of Breadcrumb -->
 
             <!-- Content -->
-            <div class="container-fluid">   
-                <div class="animated fadeIn">   
-        
+            <div class="container-fluid">
+                <div class="animated fadeIn">
+
                     @yield('content')
 
                 </div>
@@ -65,16 +65,16 @@
 
 
     </div>
-    
+
     <!-- Footer -->
-        @include('layout.footer')  
+        @include('layout.footer')
     <!-- End of Footer -->
 
     <!-- Scripts -->
-        @include('layout.scripts')
+        @include('layout.scripts')l
         @yield('scripts')
     <!-- End of Scripts -->
-    
+
 
 </body>
 

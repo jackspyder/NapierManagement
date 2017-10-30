@@ -25,19 +25,37 @@ Route::get('login/{driver}/callback', ['as' => 'socialAuthCallback', 'uses' => '
 
 
 /* CoreUI templates */
-Route::view('/', 'templates.index');
+
+
+Route::group(['middleware' => ['web']], function (){
+    Route::view('/', 'public.home')->name('home');
+
+    Route::get('/courses', 'PCoursesController@index');
+    Route::get('/courses/{course}', 'PCoursesController@show');
+
+    Route::get('/venues', 'PVenuesController@index');
+    Route::get('/venues/{venue}', 'PVenuesController@show');
+
+
+    Route::get('/classes', 'PLessonsController@index');
+    Route::get('/classes/{lesson}', 'PLessonsController@show');
+
+});
+
+
 
 
 ////////////////Admin Section//////////////
 Route::group([ 'middleware' => [ 'web', 'auth' ] ], function () {
-    Route::get('/admin-dash', 'AdminController@dashboard');
+    Route::resource('/bookings', 'BookingsController');
+
+    Route::get('/admin', 'AdminController@dashboard');
 
     Route::resource('admin/users', 'UsersController');
     Route::resource('admin/courses', 'CoursesController');
     Route::resource('admin/lessons', 'LessonsController');
     Route::resource('admin/venues', 'VenuesController');
 });
-
 
 
 
