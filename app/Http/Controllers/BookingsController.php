@@ -92,7 +92,7 @@ class BookingsController extends Controller
 
             //attach the items to the receipt.
             $user->lessons()->attach($lesson);
-
+            Session::flash('message', 'Successfully Booked Class!');
             return redirect('/classes');
         }
         //associate lessons with user

@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->nullable();
             $table->string('password', 60)->nullable();
             $table->string('active_avatar')->nullable()->default('http://via.placeholder.com/150x150');
-            //$table->boolean('is_admin')->default(true);
+            $table->boolean('is_admin')->default(true);
             $table->rememberToken();
             $table->softDeletes();
             $table->timestamps();
