@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Course;
+use App\Models\Subject;
 
 use Illuminate\Http\Request;
 
-class PCoursesController extends Controller
+class PSubjectsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class PCoursesController extends Controller
      */
     public function index()
     {
-        $courses = Course::all();
-        return view('public.courses.index', compact('courses'));
+        $subjects = Subject::all();
+        return view('public.subjects.index', compact('subjects'));
     }
 
     /**
@@ -26,7 +26,7 @@ class PCoursesController extends Controller
      */
     public function show($id)
     {
-        $course = Course::findOrFail($id);
-        return view('public.courses.show', compact('course'));
+        $subject = Subject::findOrFail($id);
+        return view('public.subjects.show', compact('subject'));
     }
 }

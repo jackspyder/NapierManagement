@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Course;
+use App\Models\Subject;
 use Illuminate\Support\Facades\Session;
 
-class CoursesController extends Controller
+class SubjectsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class CoursesController extends Controller
      */
     public function index()
     {
-        $courses = Course::all();
-        return view('courses.index', compact('courses'));
+        $subjects = Subject::all();
+        return view('subjects.index', compact('subjects'));
     }
 
     /**
@@ -26,7 +26,7 @@ class CoursesController extends Controller
      */
     public function create()
     {
-        return view('courses.create');
+        return view('subjects.create');
     }
 
     /**
@@ -52,11 +52,11 @@ class CoursesController extends Controller
         ]);
 
 
-        $course = Course::create($request->all());
+        $subject = Subject::create($request->all());
 
-        Session::flash('message', 'Successfully created Course!');
-        $course->save();
-        return redirect('/admin/courses');
+        Session::flash('message', 'Successfully created new Subject!');
+        $subject->save();
+        return redirect('/admin/subjects');
     }
 
     /**
@@ -67,8 +67,8 @@ class CoursesController extends Controller
      */
     public function show($id)
     {
-        $course = Course::findOrFail($id);
-        return view('courses.show', compact('course'));
+        $subject = Subject::findOrFail($id);
+        return view('subjects.show', compact('subject'));
     }
 
     /**
@@ -79,9 +79,9 @@ class CoursesController extends Controller
      */
     public function edit($id)
     {
-        $course = Course::findOrFail($id);
+        $subject = Subject::findOrFail($id);
 
-        return view('courses.edit', compact('course'));
+        return view('subjects.edit', compact('subject'));
     }
 
     /**
@@ -93,7 +93,7 @@ class CoursesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $course = Course::findOrFail($id);
+        $subject = Subject::findOrFail($id);
 
         $this->validate(request(), [
             'price' => 'numeric|required',
@@ -108,11 +108,11 @@ class CoursesController extends Controller
             'career_path' => 'required'
         ]);
 
-        $course->update($request->all());
+        $subject->update($request->all());
 
-        Session::flash('message', 'Successfully updated Course!');
-        $course->save();
-        return redirect('/admin/courses');
+        Session::flash('message', 'Successfully updated Subject!');
+        $subject->save();
+        return redirect('/admin/subjects');
     }
 
     /**
@@ -123,16 +123,16 @@ class CoursesController extends Controller
      */
     public function destroy($id)
     {
-        $course = Course::findOrFail($id);
+        $subject = Subject::findOrFail($id);
 
-        if ($course->lessons()->count() > 0) {
-            Session::flash('message', 'You cannot delete a course in use!');
-            return redirect('/admin/courses');
+        if ($subject->lessons()->count() > 0) {
+            Session::flash('message', 'You cannot delete a subject in use!');
+            return redirect('/admin/subjects');
         } else {
 
-            $course->delete();
-            Session::flash('flash', 'Course Deleted');
-            return redirect('/admin/courses');
+            $subject->delete();
+            Session::flash('flash', 'Subject Deleted');
+            return redirect('/admin/subjects');
         }
     }
 }
