@@ -30,8 +30,8 @@
             <!--column left-->
             <div class="form-group">
                 <div class="form-group">
-                    {{ Form::label('course_id', 'Course') }}
-                    {!! Form::select('course_id', $courses) !!}
+                    {{ Form::label('subject_id', 'Subject') }}
+                    {!! Form::select('subject_id', $subjects) !!}
 
                 </div>
 

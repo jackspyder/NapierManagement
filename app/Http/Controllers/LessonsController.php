@@ -51,7 +51,7 @@ class LessonsController extends Controller
         $lesson->spaces_left = $request['capacity'];
         $lesson->start_date = $request['start_date'];
         $lesson->capacity = $request['capacity'];
-        $lesson->course_id = $request['course_id'];
+        $lesson->subject_id = $request['subject_id'];
         $lesson->venue_id = $request['venue_id'];
 
         $lesson->save();
