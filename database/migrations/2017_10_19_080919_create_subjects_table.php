@@ -20,11 +20,8 @@ class CreateSubjectsTable extends Migration
             $table->string('title');
             $table->string('qualification');
             $table->string('awarded_by');
-            $table->text('overview');
+            $table->text('summary');
             $table->text('description');
-            $table->text('who_for');
-            $table->text('requirements');
-            $table->text('career_path');
             $table->softDeletes();
             $table->timestamps();
         });

@@ -41,7 +41,7 @@
                     <div class="card-block">
                         <blockquote class="card-blockquote">
 
-                            {{ $subject->overview }}
+                            {{ $subject->summary }}
 
                         </blockquote>
                     </div>
@@ -60,45 +60,6 @@
                     </div>
                 </div>
 
-                <div class="card">
-                    <div class="card-header">
-                        <b>Who is this Subject for?</b>
-                    </div>
-                    <div class="card-block">
-                        <blockquote class="card-blockquote">
-
-                            {{ $subject->who_for }}
-
-                        </blockquote>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-header">
-                        <b>Subject Requirements</b>
-                    </div>
-                    <div class="card-block">
-                        <blockquote class="card-blockquote">
-
-                            {{ $subject->requirements }}
-
-                        </blockquote>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-header">
-                        <b>Career Path?</b>
-                    </div>
-                    <div class="card-block">
-                        <blockquote class="card-blockquote">
-
-                            {{ $subject->career_path}}
-
-                        </blockquote>
-                    </div>
-
-                </div>
             </div>
         </div>
         <div class="col-12">

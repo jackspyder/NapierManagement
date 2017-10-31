@@ -7,9 +7,18 @@
 @section('content')
 
     <!-- will be used to show any messages -->
-    @if (Session::has('message'))
+    @if (Session::has('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{ Session::get('message') }}
+            {{ Session::get('success') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+    @elseif(Session::has('warning'))
+
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{ Session::get('warning') }}
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -33,6 +42,7 @@
                             <th>Start Date</th>
                             <th>Capacity</th>
                             <th>Spaces Left</th>
+                            <th>Members Enrolled</th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -44,6 +54,7 @@
                                 <td>{{ $lesson->start_date }}</td>
                                 <td>{{ $lesson->capacity }}</td>
                                 <td>{{ $lesson->spaces_left }}</td>
+                                <td>{{ $lesson->users->count() }}</td>
                                 <td><a href="/admin/lessons/{{ $lesson->id }}" class="btn-sm btn-success">View</a></td>
                             </tr>
                         @endforeach

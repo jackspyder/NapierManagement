@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Lesson;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Subject;
 use Illuminate\Support\Facades\Session;
@@ -16,7 +18,9 @@ class SubjectsController extends Controller
     public function index()
     {
         $subjects = Subject::all();
-        return view('subjects.index', compact('subjects'));
+        $users = 0;
+
+        return view('subjects.index', compact('subjects', 'users'));
     }
 
     /**
@@ -54,7 +58,7 @@ class SubjectsController extends Controller
 
         $subject = Subject::create($request->all());
 
-        Session::flash('message', 'Successfully created new Subject!');
+        Session::flash('success', 'Successfully created new Subject!');
         $subject->save();
         return redirect('/admin/subjects');
     }
@@ -110,7 +114,7 @@ class SubjectsController extends Controller
 
         $subject->update($request->all());
 
-        Session::flash('message', 'Successfully updated Subject!');
+        Session::flash('success', 'Successfully updated Subject!');
         $subject->save();
         return redirect('/admin/subjects');
     }
@@ -126,12 +130,12 @@ class SubjectsController extends Controller
         $subject = Subject::findOrFail($id);
 
         if ($subject->lessons()->count() > 0) {
-            Session::flash('message', 'You cannot delete a subject in use!');
+            Session::flash('warning', 'You cannot delete a subject in use!');
             return redirect('/admin/subjects');
         } else {
 
             $subject->delete();
-            Session::flash('flash', 'Subject Deleted');
+            Session::flash('success', 'Subject Deleted!');
             return redirect('/admin/subjects');
         }
     }

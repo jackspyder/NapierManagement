@@ -32,6 +32,11 @@
             <!--column left-->
             <div class="form-group col-md-8">
                 <div class="form-group">
+                    {{ Form::label('title', 'Subject Title') }}
+                    {{ Form::text('title', null, array('class' => 'form-control')) }}
+                </div>
+
+                <div class="form-group">
                     {{ Form::label('price', 'Subject Price (Pounds)') }}
                     {{ Form::number('price', null, array('class' => 'form-control')) }}
                 </div>
@@ -39,11 +44,6 @@
                 <div class="form-group">
                     {{ Form::label('duration', 'Subject Duration (Days)') }}
                     {{ Form::number('duration', null, array('class' => 'form-control')) }}
-                </div>
-
-                <div class="form-group">
-                    {{ Form::label('title', 'Subject Title') }}
-                    {{ Form::text('title', null, array('class' => 'form-control')) }}
                 </div>
 
                 <div class="form-group">
@@ -57,28 +57,13 @@
                 </div>
 
                 <div class="form-group">
-                    {{ Form::label('overview', 'Subject Overview') }}
-                    {{ Form::textarea('overview', null, array('class' => 'form-control', 'id' => 'overview')) }}
+                    {{ Form::label('summary', 'Short Subject Summary') }}
+                    {{ Form::textarea('summary', null, array('class' => 'form-control', 'id' => 'summary')) }}
                 </div>
 
                 <div class="form-group">
                     {{ Form::label('description', 'Subject Description') }}
                     {{ Form::textarea('description', null, array('class' => 'form-control', 'id' => 'description')) }}
-                </div>
-
-                <div class="form-group">
-                    {{ Form::label('who_for', 'Who is this subject for?') }}
-                    {{ Form::textarea('who_for', null, array('class' => 'form-control', 'id' => 'who_for')) }}
-                </div>
-
-                <div class="form-group">
-                    {{ Form::label('requirements', 'Requirements') }}
-                    {{ Form::textarea('requirements', null, array('class' => 'form-control','id' => 'requirements')) }}
-                </div>
-
-                <div class="form-group">
-                    {{ Form::label('career_path', 'Career Path') }}
-                    {{ Form::text('career_path', null, array('class' => 'form-control')) }}
                 </div>
 
                 {{ Form::submit('Submit Subject', array('class' => 'btn btn-primary')) }}

@@ -56,7 +56,7 @@
 
                                 <h4>Subject Overview: </h4>
 
-                                <p>{!! $subject->overview !!}</p>
+                                <p>{!! $subject->summary !!}</p>
 
                                 <a href="/subjects/{{ $subject->id }}" class="btn btn-primary fa-pull-right">View
                                     Subject</a>

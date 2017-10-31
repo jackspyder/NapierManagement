@@ -7,9 +7,18 @@
 @section('content')
 
     <!-- will be used to show any messages -->
-    @if (Session::has('message'))
+    @if (Session::has('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{ Session::get('message') }}
+            {{ Session::get('success') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+    @elseif(Session::has('warning'))
+
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{ Session::get('warning') }}
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>

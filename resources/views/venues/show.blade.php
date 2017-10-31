@@ -61,7 +61,7 @@
                             <div class="col-3">
                                 {{ Form::open(['route' => ['venues.destroy', $venue->id],'class' => 'pull-left']) }}
                                 {{ Form::hidden('_method', 'DELETE') }}
-                                {{ Form::submit('Delete this Event!',['class' => 'btn btn-danger'])}}
+                                {{ Form::submit('Delete this Venue!',['class' => 'btn btn-danger'])}}
                                 {{ Form::close() }}
                             </div>
                         </blockquote>
@@ -71,5 +71,43 @@
         </div>
     </div>
 
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fa fa-align-justify"></i> Classes at this venue
+                </div>
+                <div class="card-block">
+                    <table class="table table-bordered table-striped table-sm">
+                        <thead>
+                        <tr>
+                            <th>Subject Title</th>
+                            <th>Start Date</th>
+                            <th>Capacity</th>
+                            <th>Spaces Left</th>
+                            <th>Members Enrolled</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($venue->lessons as $lesson)
+                            <tr>
+                                <td>{{ $lesson->subject->title }}</td>
+                                <td>{{ $lesson->start_date }}</td>
+                                <td>{{ $lesson->capacity }}</td>
+                                <td>{{ $lesson->spaces_left }}</td>
+                                <td>{{ $lesson->users->count() }}</td>
+                                <td><a href="/admin/lessons/{{ $lesson->id }}" class="btn-sm btn-success">View</a></td>
+                            </tr>
+                        @endforeach
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!--/.col-->
+    </div>
+    <!--/.row-->
 
 @stop

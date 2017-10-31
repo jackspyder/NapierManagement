@@ -49,7 +49,7 @@ class VenuesController extends Controller
 
         $venue = Venue::create($request->all());
 
-        Session::flash('message', 'Successfully created Venue!');
+        Session::flash('success', 'Successfully created Venue!');
         $venue->save();
         return redirect('/admin/venues');
     }
@@ -100,7 +100,7 @@ class VenuesController extends Controller
 
         $venue->update($request->all());
         $venue->save();
-        Session::flash('message', 'Successfully updated Venue!');
+        Session::flash('success', 'Successfully updated Venue!');
 
         return redirect('/admin/venues');
     }
@@ -117,12 +117,12 @@ class VenuesController extends Controller
         $venue = Venue::findOrFail($id);
 
         if($venue->lessons()->count() > 0){
-            Session::flash('message', 'You cannot delete a venue in use!');
+            Session::flash('warning', 'You cannot delete a venue in use!');
             return redirect('/admin/venues');
         }else{
 
             $venue->delete();
-            Session::flash('message', 'Venue Deleted');
+            Session::flash('success', 'Venue Deleted');
             return redirect('/admin/venues');
         }
 

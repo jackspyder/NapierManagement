@@ -7,9 +7,18 @@
 @section('content')
 
     <!-- will be used to show any messages -->
-    @if (Session::has('message'))
+    @if (Session::has('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{ Session::get('message') }}
+            {{ Session::get('success') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+        @elseif(Session::has('warning'))
+
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{ Session::get('warning') }}
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -31,6 +40,7 @@
                             <th>price</th>
                             <th>duration</th>
                             <th>Active Classes</th>
+                            <th>Enrolled Members</th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -41,7 +51,16 @@
                                 <td>{{ $subject->price }}</td>
                                 <td>{{ $subject->duration }}</td>
                                 <td>{{ $subject->lessons->count() }}</td>
-                                <td><a href="/admin/subjects/{{ $subject->id }}" class="btn-sm btn-success">View</a></td>
+                                <td>
+
+                                    @foreach($subject->lessons as $lesson )
+                                        @continue($users = $users + $lesson->users->count())
+                                    @endforeach
+                                    {{ $users }}
+
+                                </td>
+                                <td><a href="/admin/subjects/{{ $subject->id }}" class="btn-sm btn-success">View</a>
+                                </td>
                             </tr>
                         @endforeach
 
