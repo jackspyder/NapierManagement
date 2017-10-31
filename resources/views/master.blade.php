@@ -1,20 +1,12 @@
-<!--
- * CoreUI - Open Source Bootstrap Admin Template
- * @version v1.0.0-alpha.6
- * @link http://coreui.io
- * Copyright (c) 2017 creativeLabs Łukasz Holeczek
- * @license MIT
- -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
-    <meta name="author" content="Łukasz Holeczek">
+    <meta name="description" content="Napier Management Training Prototype">
+    <meta name="author" content="Jack Powell">
     <link rel="shortcut icon" href="{{ asset('img/favicon.png') }}">
 
     <title>NMT | @yield('title')</title>
@@ -29,54 +21,42 @@
     @yield('stylesheet')
 
 </head>
+@if(Auth::user() && Auth::user()->is_admin == true)
+    <body class="app header-fixed sidebar-fixed">
+    @else
+        <body class="app header-fixed sidebar-hidden">
+        @endif
 
-<body class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden">
-    @include('layout.header')
+        <!--navbar-->
+        @include('layout.header')
+        <div class="app-body">
 
-    <div class="app-body">
-
-        <!-- Sidebar -->
-            @include('layout.sidebar')
+            <!-- Sidebar -->
+        @include('layout.sidebar')
         <!-- End of Sidebar -->
 
-        <!-- Main content -->
-        <main class="main">
+            <!-- Main content -->
+            <main class="main">
 
-            <!-- Breadcrumb -->
-                @include('layout.breadcrumb')
+                <!-- Breadcrumb -->
+            @include('layout.breadcrumb')
             <!-- End of Breadcrumb -->
 
-            <!-- Content -->
-            <div class="container-fluid">
-                <div class="animated fadeIn">
+                <!-- Content -->
+                <div class="container-fluid">
+                    <div class="animated fadeIn">
 
-                    @yield('content')
+                        @yield('content')
 
+                    </div>
                 </div>
-            </div>
-            <!-- Content -->
-
-
-        </main>
-
-        <!-- Aside Menu -->
-            @include('layout.asidemenu')
-        <!-- End of Aside Menu -->
-
-
-
-    </div>
-
-    <!-- Footer -->
+            </main>
+        </div>
+        <!-- Footer -->
         @include('layout.footer')
-    <!-- End of Footer -->
 
-    <!-- Scripts -->
-        @include('layout.scripts')l
+        <!-- Scripts -->
+        @include('layout.scripts')
         @yield('scripts')
-    <!-- End of Scripts -->
-
-
-</body>
-
+        </body>
 </html>

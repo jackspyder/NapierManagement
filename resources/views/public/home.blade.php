@@ -1,4 +1,4 @@
-@extends('public')
+@extends('master')
 
 @section('title')
     Public Test

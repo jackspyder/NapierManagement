@@ -1,7 +1,7 @@
-@extends('public')
+@extends('master')
 
 @section('title')
-    Home
+    View Class
 @endsection
 
 @section('content')
@@ -96,14 +96,14 @@
                                 </div>
 
 
-
                                 <div class="col-3">
                                     <a href="/subjects/{{ $lesson->subject->id }}" class="btn btn-primary">Subject
                                         Overview</a>
                                 </div>
 
                                 <div class="col-3">
-                                    <a href="{{ asset('docs/reg_form.pdf' )}}" class="btn btn-success">PDF Booking form</a>
+                                    <a href="{{ asset('docs/reg_form.pdf' )}}" class="btn btn-success">PDF Booking
+                                        form</a>
                                 </div>
 
                                 <div class="col-3">

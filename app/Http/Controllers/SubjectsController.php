@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Lesson;
 use App\Models\User;
+use App\Models\Venue;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use App\Models\Subject;
 use Illuminate\Support\Facades\Session;
@@ -72,7 +74,16 @@ class SubjectsController extends Controller
     public function show($id)
     {
         $subject = Subject::findOrFail($id);
-        return view('subjects.show', compact('subject'));
+
+        $venues = new Collection();
+
+        foreach($subject->lessons as $lesson){
+            $temp = Venue::findorFail($lesson->venue_id);
+
+            $venues->push($temp);
+        }
+
+        return view('subjects.show', compact('subject', 'venues'));
     }
 
     /**

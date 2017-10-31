@@ -26,6 +26,11 @@ class Subject extends Model
         return $this->hasMany(Lesson::class);
     }
 
+    public function venues()
+    {
+        return $this->hasManyThrough(Venue::class, Lesson::class);
+    }
+
 //    public function users()
 //    {
 //        return $this->hasManyThrough(User::class, Lesson::class);

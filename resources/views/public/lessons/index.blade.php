@@ -1,24 +1,34 @@
-@extends('public')
+@extends('master')
 
 @section('title')
     Active Classes List
 @endsection
 
 @section('content')
+    <div class="row justify-content-center">
+        <div class="col-10">
+            <!-- will be used to show any messages -->
+            @if (Session::has('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ Session::get('success') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
 
-    <!-- will be used to show any messages -->
-    @if (Session::has('message'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{ Session::get('message') }}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
+            @elseif(Session::has('warning'))
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    {{ Session::get('warning') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
         </div>
-    @endif
+    </div>
 
-
-    <div class="row">
-        <div class="col-lg-12">
+    <div class="row justify-content-center">
+        <div class="col-10">
             <div class="card">
                 <div class="card-header">
                     <i class="fa fa-align-justify"></i> List of Classes

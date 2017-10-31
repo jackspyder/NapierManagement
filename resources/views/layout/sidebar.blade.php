@@ -26,7 +26,7 @@
                     Administration
                 </li>
                 <li class="nav-item nav-dropdown">
-                    <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-chemistry"></i> subjects</a>
+                    <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-chemistry"></i> Subjects</a>
                     <ul class="nav-dropdown-items">
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/admin/subjects') }}"><i class="icon-list"></i> View

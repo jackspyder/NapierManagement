@@ -1,145 +1,144 @@
-<!--
- * CoreUI - Open Source Bootstrap Admin Template
- * @version v1.0.0-alpha.6
- * @link http://coreui.io
- * Copyright (c) 2017 creativeLabs Łukasz Holeczek
- * @license MIT
- -->
-<!DOCTYPE html>
-<html lang="en">
+@extends('master')
 
-<head>
+@section('title')
+    View Subject
+@endsection
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="CoreUI Bootstrap 4 Admin Template">
-    <meta name="author" content="Lukasz Holeczek">
-    <meta name="keyword" content="CoreUI Bootstrap 4 Admin Template">
-    <!-- <link rel="shortcut icon" href="assets/ico/favicon.png"> -->
+@section('content')
 
-    <title>CoreUI Bootstrap 4 Admin Template</title>
-
-    <!-- Icons -->
-    <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/simple-line-icons.css') }}" rel="stylesheet">
-
-    <!-- Main styles for this application -->
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-
-</head>
-
-<body class="app flex-row align-items-center">
-<div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="card mx-4">
-                <div class="card-block p-4">
-                    <h1>Register</h1>
-                    <p class="text-muted">Create your account</p>
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
-                        {{ csrf_field() }}
+        <div class="col-6">
+            <!-- if there are creation errors, they will show here -->
+            @if (count($errors) > 0)
+                <div class="alert alert-danger">
+                    <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+        </div>
+    </div>
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Name</label>
+    <div class="row justify-content-center">
+        <div class="col-6">
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name"
-                                       value="{{ old('name') }}" required autofocus>
+            <div class="card">
+                <div class="card-header">
+                    <i class="fa fa-align-justify"></i> Register
+                </div>
+                <div class="card-block">
+                    {{ Form::open(['url' => '/register', 'method' => 'POST']) }}
+                    <div class="form-group">
 
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
+                        <div class="row justify-content-center">
+
+                            <div class="form-group col-6">
+                                {{ Form::label('forename', 'Forename') }}
+                                {{ Form::text('forename', null, array('class' => 'form-control')) }}
+                            </div>
+
+
+                            <div class="form-group col-6">
+                                {{ Form::label('surname', 'Surname') }}
+                                {{ Form::text('surname', null, array('class' => 'form-control')) }}
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">Email</label>
+                        <div class="row justify-content-center">
+                            <div class="form-group col-6">
+                                {{ Form::label('dob', 'Date of Birth') }}
+                                {{ Form::date('dob', null, array('class' => 'form-control')) }}
+                            </div>
 
-                            <div class="col-md-6">
-                                <input id="email" class="form-control" name="email"
-                                       value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
+                            <div class="form-group col-6">
+                                {{ Form::label('email', 'Email') }}
+                                {{ Form::text('email', null, array('class' => 'form-control')) }}
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
+                        <div class="row justify-content-center">
+                            <div class="form-group col-6">
+                                {{ Form::label('address', 'Address') }}
+                                {{ Form::text('address', null, array('class' => 'form-control')) }}
+                            </div>
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
+                            <div class="form-group col-6">
+                                {{ Form::label('post_code', 'Post Code') }}
+                                {{ Form::text('post_code', null, array('class' => 'form-control')) }}
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
+                        <div class="row justify-content-center">
+                            <div class="form-group col-6">
+                                {{ Form::label('occupation', 'Occupation') }}
+                                {{ Form::text('occupation', null, array('class' => 'form-control')) }}
+                            </div>
 
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control"
-                                       name="password_confirmation" required>
+                            <div class="form-group col-6">
+                                {{ Form::label('company', 'Company') }}
+                                {{ Form::text('company', null, array('class' => 'form-control')) }}
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Register
-                                </button>
+                        <div class="row justify-content-center">
+
+                            <div class="form-group col-6">
+                                {{ Form::label('password', 'Password') }}
+                                {{ Form::password('password', array('class' => 'form-control')) }}
+                            </div>
+
+                            <div class="form-group col-6">
+                                {{ Form::label('password_confirmation', 'Confirm Password') }}
+                                {{ Form::password('password_confirmation', array('class' => 'form-control')) }}
                             </div>
                         </div>
-                    </form>
+                        <div class="row justify-content-center">
+                            {{ Form::submit('Submit Registration', array('class' => 'btn btn-lg btn-success')) }}
+                        </div>
+                    </div>
+                </div>
+                {{ Form::close() }}
 
-                    <div class="card-footer p-4">
-                        <div class="row">
-                            <h4 class="card-title text-center">Use Social Media Login!</h4>
-                            <div class="col-6">
-                                <a href="{{ url('/login/facebook') }}" class="btn btn-block btn-facebook">
-                                    <span>Facebook</span>
-                                </a>
-                            </div>
-                            <div class="col-6">
-                                <a href="{{ url('/login/google') }}" class="btn btn-block btn-google-plus">
-                                    <span>Google</span>
-                                </a>
-                            </div>
 
-                            <div class="col-6">
-                                <a href="{{ url('/login/linkedin') }}" class="btn btn-block btn-linkedin">
-                                    <span>Linkedin</span>
-                                </a>
-                            </div>
+                <div class="card-footer p-4">
+                    <div class="row justify-content-center">
+                        <h4 class="card-title text-center">Register with Social Media instead!</h4>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-4">
+                            <a href="{{ url('/login/facebook') }}"
+                               class="btn btn-block btn-facebook">
+                                <span>Facebook</span>
+                            </a>
+                        </div>
+                        <div class="col-4">
+                            <a href="{{ url('/login/google') }}"
+                               class="btn btn-block btn-google-plus">
+                                <span>Google</span>
+                            </a>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row justify-content-center">
+                        <div class="col-4">
+                            <a href="{{ url('/login/linkedin') }}"
+                               class="btn btn-block btn-linkedin">
+                                <span>Linkedin</span>
+                            </a>
+                        </div>
 
-                            <div class="col-6">
-                                <a href="{{ url('/login/github') }}" class="btn btn-block btn-github">
-                                    <span>Github</span>
-                                </a>
-                            </div>
+                        <div class="col-4">
+                            <a href="{{ url('/login/github') }}"
+                               class="btn btn-block btn-github">
+                                <span>Github</span>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- Bootstrap and necessary plugins -->
-    <script src="{{ asset('jquery.min.js') }}"></script>
-    <script src="{{ asset('js/tether.min.js') }}"></script>
-    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-
-
-</body>
-
-</html>
+@stop
