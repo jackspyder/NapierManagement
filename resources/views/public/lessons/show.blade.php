@@ -95,10 +95,17 @@
                                     <a href="/venues/{{ $lesson->venue->id }}" class="btn btn-primary">View Venue</a>
                                 </div>
 
+
+
                                 <div class="col-3">
                                     <a href="/courses/{{ $lesson->course->id }}" class="btn btn-primary">Course
                                         Overview</a>
                                 </div>
+
+                                <div class="col-3">
+                                    <a href="{{ asset('docs/reg_form.pdf' )}}" class="btn btn-success">PDF Booking form</a>
+                                </div>
+
                                 <div class="col-3">
                                     @if(Auth::guest())
                                         <a href="/login" class="btn btn-primary">Login to Book</a>

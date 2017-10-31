@@ -28,6 +28,9 @@ class SocialAccountsService
                     'name' => $providerUser->getName(),
                     'active_avatar' => $providerUser->getAvatar(),
                 ]);
+
+
+                $user->profile()->create();
             }
 
             //if existing user email found, associate provider.
@@ -37,6 +40,8 @@ class SocialAccountsService
                 'provider_name' => $provider,
                 'active_avatar' => $providerUser->getAvatar()
             ]);
+
+            $user->profile()->create();
 
             return $user;
 

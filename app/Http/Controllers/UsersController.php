@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller
 {
@@ -26,6 +27,14 @@ class UsersController extends Controller
     public function create()
     {
         //
+    }
+
+    public function profile($id)
+    {
+
+        $user = User::findOrFail($id);
+
+        return view('users.profile', compact('user'));
     }
 
     /**
@@ -59,7 +68,8 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::findOrFail($id);
+        return view('users.edit', compact('user'));
     }
 
     /**

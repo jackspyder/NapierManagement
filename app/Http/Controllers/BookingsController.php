@@ -61,8 +61,6 @@ class BookingsController extends Controller
      */
     public function edit($id)
     {
-
-
         return view('public.bookings.buy', compact(''));
     }
 
@@ -76,7 +74,6 @@ class BookingsController extends Controller
     public function update(Request $request, $id)
     {
 
-
         $user = User::findOrFail($request['id']);
         $lesson = Lesson::findOrFail($id);
 
@@ -84,8 +81,7 @@ class BookingsController extends Controller
             Session::flash('message', 'You are already booked on this course!');
 
             return redirect('/classes');
-        } else {
-
+        } else  {
 
             $lesson->spaces_left = $lesson->spaces_left - 1;
             $lesson->save();

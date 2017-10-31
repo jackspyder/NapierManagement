@@ -16,6 +16,7 @@
     <link href="{{ asset('css/simple-line-icons.css') }}" rel="stylesheet">
     <!-- Main styles for this application -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     @yield('stylesheet')
 
@@ -25,7 +26,9 @@
 @include('layout.header')
 <div class="app-body">
 
-
+    <!-- Sidebar -->
+@include('layout.sidebar')
+<!-- End of Sidebar -->
 
     <main class="main">
 
@@ -40,9 +43,9 @@
 
     @include('public.layout.asidemenu')
 </div>
-@include('public.layout.footer')
+@include('layout.footer')
 
-@include('public.layout.scripts')
+@include('layout.scripts')
 
 
 {{--@include('scripts')--}}

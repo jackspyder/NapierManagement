@@ -45,8 +45,7 @@ class LessonsController extends Controller
     {
         $request->validate([
             'start_date' => 'required|date|after:tomorrow',
-            'capacity' => 'required|min:1|max:40',
-            'spaces_left' => 'required|min:1|max:40'
+            'capacity' => 'required',
         ]);
 
         $lesson = new Lesson;
@@ -109,8 +108,7 @@ class LessonsController extends Controller
 
         $request->validate([
             'start_date' => 'required|date|after:tomorrow',
-            'capacity' => 'required|min:1|max:40',
-            'spaces_left' => 'required|min:1|max:40'
+            'capacity' => 'required',
         ]);
 
         $lesson = Lesson::findOrFail($id);
@@ -137,6 +135,16 @@ class LessonsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $lesson = Lesson::findOrFail($id);
+
+        if ($lesson->users()->count() > 0) {
+            Session::flash('message', 'You cannot delete a class in use!');
+            return redirect('/admin/lessons');
+        } else {
+
+            $lesson->delete();
+            Session::flash('flash', 'Class Deleted');
+            return redirect('/admin/lessons');
+        }
     }
 }

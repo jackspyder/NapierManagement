@@ -99,9 +99,9 @@ class VenuesController extends Controller
         ]);
 
         $venue->update($request->all());
-
-        Session::flash('message', 'Successfully updated Venue!');
         $venue->save();
+        Session::flash('message', 'Successfully updated Venue!');
+
         return redirect('/admin/venues');
     }
 
@@ -113,6 +113,18 @@ class VenuesController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+        $venue = Venue::findOrFail($id);
+
+        if($venue->lessons()->count() > 0){
+            Session::flash('message', 'You cannot delete a venue in use!');
+            return redirect('/admin/venues');
+        }else{
+
+            $venue->delete();
+            Session::flash('message', 'Venue Deleted');
+            return redirect('/admin/venues');
+        }
+
     }
 }
