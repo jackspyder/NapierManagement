@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class CoursesTableSeeder extends Seeder
+class SubjectsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,7 +11,7 @@ class CoursesTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('courses')->insert([
+        DB::table('subjects')->insert([
             [
                 'price' => '800',
                 'duration' => '5',
