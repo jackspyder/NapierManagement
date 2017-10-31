@@ -49,14 +49,14 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'forename' => 'required|string|max:255',
-            'surname' => 'required|string|max:255',
-            'dob' => 'required|date|after:tomorrow',
+            'name' => 'required|string|max:255',
+            'dob' => 'required|date',
+            'website' => 'nullable',
             'email' => 'required|string|email|max:255|unique:users',
-            'address' => 'nullable|alpha_dash',
+            'address' => 'nullable',
             'post_code' => 'nullable|alpha_num',
-            'occupation' => 'nullable|alpha_dash',
-            'company' => 'nullable|alpha_dash',
+            'occupation' => 'nullable',
+            'company' => 'nullable',
             'password' => 'required|string|min:6|confirmed',
         ]);
     }
@@ -71,14 +71,14 @@ class RegisterController extends Controller
     {
 
         $user = User::create([
-            'forename' => $data['forename'],
-            'surname' => $data['surname'],
+            'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'is_admin' => false,
         ]);
 
         $profile = Profile::create([
+            'website' => $data['website'],
             'address' => $data['address'],
             'post_code' => $data['post_code'],
             'dob' => $data['dob'],
@@ -86,7 +86,7 @@ class RegisterController extends Controller
             'company' => $data['company'],
         ]);
 
-        $user->profile()->attach($profile);
+        $user->profile()->save($profile);
         return $user;
 
     }

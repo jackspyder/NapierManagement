@@ -29,7 +29,6 @@ class SocialAccountsService
                     'active_avatar' => $providerUser->getAvatar(),
                 ]);
 
-
                 $user->profile()->create();
             }
 

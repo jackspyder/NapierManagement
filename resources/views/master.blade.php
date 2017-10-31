@@ -21,11 +21,7 @@
     @yield('stylesheet')
 
 </head>
-@if(Auth::user() && Auth::user()->is_admin == true)
     <body class="app header-fixed sidebar-fixed">
-    @else
-        <body class="app header-fixed sidebar-hidden">
-        @endif
 
         <!--navbar-->
         @include('layout.header')

@@ -36,26 +36,26 @@
                         <div class="row justify-content-center">
 
                             <div class="form-group col-6">
-                                {{ Form::label('forename', 'Forename') }}
-                                {{ Form::text('forename', null, array('class' => 'form-control')) }}
+                                {{ Form::label('name', 'Name') }}
+                                {{ Form::text('name', null, array('class' => 'form-control')) }}
                             </div>
 
-
-                            <div class="form-group col-6">
-                                {{ Form::label('surname', 'Surname') }}
-                                {{ Form::text('surname', null, array('class' => 'form-control')) }}
-                            </div>
-                        </div>
-
-                        <div class="row justify-content-center">
                             <div class="form-group col-6">
                                 {{ Form::label('dob', 'Date of Birth') }}
                                 {{ Form::date('dob', null, array('class' => 'form-control')) }}
                             </div>
 
+                        </div>
+
+                        <div class="row justify-content-center">
                             <div class="form-group col-6">
                                 {{ Form::label('email', 'Email') }}
                                 {{ Form::text('email', null, array('class' => 'form-control')) }}
+                            </div>
+
+                            <div class="form-group col-6">
+                                {{ Form::label('website', 'Website') }}
+                                {{ Form::text('website', null, array('class' => 'form-control')) }}
                             </div>
                         </div>
 
