@@ -29,16 +29,16 @@
 
                             <div class="row">
                                 <div class="col-3 info-heading">
-                                    <strong>Course Title: </strong>
+                                    <strong>Subject Title: </strong>
                                 </div>
-                                <div class="col-3 info-body">{{ $lesson->course->title }}</div>
+                                <div class="col-3 info-body">{{ $lesson->subject->title }}</div>
                             </div>
 
                             <div class="row">
                                 <div class="col-3 info-heading">
-                                    <strong>Price of Course: </strong>
+                                    <strong>Price of Subject: </strong>
                                 </div>
-                                <div class="col-3 info-body">£{{ $lesson->course->price }}</div>
+                                <div class="col-3 info-body">£{{ $lesson->subject->price }}</div>
                             </div>
                             <br>
 
@@ -46,22 +46,22 @@
                                 <div class="col-3 info-heading">
                                     <strong>Qualification Gained: </strong>
                                 </div>
-                                <div class="col-3 info-body">{{ $lesson->course->qualification}}</div>
+                                <div class="col-3 info-body">{{ $lesson->subject->qualification}}</div>
                             </div>
 
                             <div class="row">
                                 <div class="col-3 info-heading">
                                     <strong>Awarding Body: </strong>
                                 </div>
-                                <div class="col-3 info-body">{{ $lesson->course->awarded_by}}</div>
+                                <div class="col-3 info-body">{{ $lesson->subject->awarded_by}}</div>
                             </div>
                             <br>
 
                             <div class="row">
                                 <div class="col-3 info-heading">
-                                    <strong>Course Duration: </strong>
+                                    <strong>Subject Duration: </strong>
                                 </div>
-                                <div class="col-3 info-body">{{ $lesson->course->duration }} days</div>
+                                <div class="col-3 info-body">{{ $lesson->subject->duration }} days</div>
                             </div>
 
                             <div class="row">
@@ -98,7 +98,7 @@
 
 
                                 <div class="col-3">
-                                    <a href="/courses/{{ $lesson->course->id }}" class="btn btn-primary">Course
+                                    <a href="/subjects/{{ $lesson->subject->id }}" class="btn btn-primary">Subject
                                         Overview</a>
                                 </div>
 

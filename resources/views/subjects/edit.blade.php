@@ -5,14 +5,14 @@
 @endsection
 
 @section('title')
-    Edit Course
+    Edit Subject
 @endsection
 
 @section('content')
     <div class="container">
-        <h3>Edit this course</h3>
+        <h3>Edit this subject</h3>
 
-    {{ Form::model($course, array('route' => array('courses.update', $course->id), 'method' => 'PATCH')) }}
+    {{ Form::model($subject, array('route' => array('subjects.update', $subject->id), 'method' => 'PATCH')) }}
 
     <!-- if there are creation errors, they will show here -->
         @if (count($errors) > 0)
@@ -34,17 +34,17 @@
             <!--column left-->
             <div class="form-group col-md-8">
                 <div class="form-group">
-                    {{ Form::label('price', 'Course Price (Pounds)') }}
+                    {{ Form::label('price', 'Subject Price (Pounds)') }}
                     {{ Form::number('price', null, array('class' => 'form-control')) }}
                 </div>
 
                 <div class="form-group">
-                    {{ Form::label('duration', 'Course Duration (Days)') }}
+                    {{ Form::label('duration', 'Subject Duration (Days)') }}
                     {{ Form::number('duration', null, array('class' => 'form-control')) }}
                 </div>
 
                 <div class="form-group">
-                    {{ Form::label('title', 'Course Title') }}
+                    {{ Form::label('title', 'Subject Title') }}
                     {{ Form::text('title', null, array('class' => 'form-control')) }}
                 </div>
 
@@ -59,17 +59,17 @@
                 </div>
 
                 <div class="form-group">
-                    {{ Form::label('overview', 'Course Overview') }}
+                    {{ Form::label('overview', 'Subject Overview') }}
                     {{ Form::textarea('overview', null, array('class' => 'form-control', 'id' => 'overview')) }}
                 </div>
 
                 <div class="form-group">
-                    {{ Form::label('description', 'Course Description') }}
+                    {{ Form::label('description', 'Subject Description') }}
                     {{ Form::textarea('description', null, array('class' => 'form-control', 'id' => 'description')) }}
                 </div>
 
                 <div class="form-group">
-                    {{ Form::label('who_for', 'Who is this course for?') }}
+                    {{ Form::label('who_for', 'Who is this Subject for?') }}
                     {{ Form::textarea('who_for', null, array('class' => 'form-control', 'id' => 'who_for')) }}
                 </div>
 
@@ -83,7 +83,7 @@
                     {{ Form::text('career_path', null, array('class' => 'form-control')) }}
                 </div>
 
-                {{ Form::submit('Edit Course', array('class' => 'btn btn-primary')) }}
+                {{ Form::submit('Edit Subject', array('class' => 'btn btn-primary')) }}
 
             </div>
 

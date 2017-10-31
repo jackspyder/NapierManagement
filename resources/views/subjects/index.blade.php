@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('title')
-    Course List
+    Subject List
 @endsection
 
 @section('content')
@@ -21,7 +21,7 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <i class="fa fa-align-justify"></i> Course List
+                    <i class="fa fa-align-justify"></i> Subject List
                 </div>
                 <div class="card-block">
                     <table class="table table-bordered table-striped table-sm">
@@ -35,13 +35,13 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($courses as $course)
+                        @foreach($subjects as $subject)
                             <tr>
-                                <td>{{ $course->title }}</td>
-                                <td>{{ $course->price }}</td>
-                                <td>{{ $course->duration }}</td>
-                                <td>{{ $course->lessons->count() }}</td>
-                                <td><a href="/admin/courses/{{ $course->id }}" class="btn-sm btn-success">View</a></td>
+                                <td>{{ $subject->title }}</td>
+                                <td>{{ $subject->price }}</td>
+                                <td>{{ $subject->duration }}</td>
+                                <td>{{ $subject->lessons->count() }}</td>
+                                <td><a href="/admin/subjects/{{ $subject->id }}" class="btn-sm btn-success">View</a></td>
                             </tr>
                         @endforeach
 

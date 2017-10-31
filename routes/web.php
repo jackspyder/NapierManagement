@@ -32,8 +32,8 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::get('/profile/{user}', 'UsersController@profile');
 
-    Route::get('/courses', 'PCoursesController@index');
-    Route::get('/courses/{course}', 'PCoursesController@show');
+    Route::get('/subjects', 'PSubjectsController@index');
+    Route::get('/subjects/{subject}', 'PSubjectsController@show');
 
     Route::get('/venues', 'PVenuesController@index');
     Route::get('/venues/{venue}', 'PVenuesController@show');
@@ -53,12 +53,10 @@ Route::group(['middleware' => ['web']], function () {
 
 ////////////////Admin Section//////////////
 Route::group(['middleware' => ['web', 'auth', 'admin']], function () {
-    //Route::resource('/bookings', 'BookingsController');
-
     Route::get('/admin', 'AdminController@dashboard');
 
     Route::resource('admin/users', 'UsersController');
-    Route::resource('admin/courses', 'CoursesController');
+    Route::resource('admin/subjects', 'SubjectsController');
     Route::resource('admin/lessons', 'LessonsController');
     Route::resource('admin/venues', 'VenuesController');
 });

@@ -19,7 +19,7 @@
                             <th>Name</th>
                             <th>City</th>
                             <th>Post Code</th>
-                            <th>Courses Running</th>
+                            <th>Classes Running</th>
                             <th>Action</th>
                         </tr>
                         </thead>

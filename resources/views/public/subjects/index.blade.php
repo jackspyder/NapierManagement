@@ -1,4 +1,5 @@
 @extends('public')
+@extends('public')
 
 @section('title')
     Public Test
@@ -9,57 +10,57 @@
 
         <div class="row">
             <div class="col-md-12">
-                @foreach($courses as $course)
+                @foreach($subjects as $subject)
                     <div class="card">
                         <div class="card-header">
-                            <b>{{ $course->title }}</b>
+                            <b>{{ $subject->title }}</b>
                         </div>
                         <div class="card-block">
                             <blockquote class="card-blockquote">
 
                                 <div class="row">
                                     <div class="col-3 info-heading">
-                                        <strong>Course Title: </strong>
+                                        <strong>Subject Title: </strong>
                                     </div>
-                                    <div class="col-3 info-body">{{ $course->title }}</div>
+                                    <div class="col-3 info-body">{{ $subject->title }}</div>
                                 </div>
 
                                 <div class="row">
                                     <div class="col-3 info-heading">
-                                        <strong>Price of Course: </strong>
+                                        <strong>Price of Subject: </strong>
                                     </div>
-                                    <div class="col-3 info-body">£{{ $course->price }}</div>
+                                    <div class="col-3 info-body">£{{ $subject->price }}</div>
                                 </div>
 
                                 <div class="row">
                                     <div class="col-3 info-heading">
                                         <strong>Qualification Gained: </strong>
                                     </div>
-                                    <div class="col-3 info-body">{{ $course->qualification}}</div>
+                                    <div class="col-3 info-body">{{ $subject->qualification}}</div>
                                 </div>
 
                                 <div class="row">
                                     <div class="col-3 info-heading">
                                         <strong>Awarding Body: </strong>
                                     </div>
-                                    <div class="col-3 info-body">{{ $course->awarded_by}}</div>
+                                    <div class="col-3 info-body">{{ $subject->awarded_by}}</div>
                                 </div>
 
                                 <div class="row">
                                     <div class="col-3 info-heading">
-                                        <strong>Course Duration: </strong>
+                                        <strong>Subject Duration: </strong>
                                     </div>
-                                    <div class="col-3 info-body">{{ $course->duration }} days</div>
+                                    <div class="col-3 info-body">{{ $subject->duration }} days</div>
                                 </div>
 
                                 <hr>
 
-                                <h4>Course Overview: </h4>
+                                <h4>Subject Overview: </h4>
 
-                                <p>{!! $course->overview !!}</p>
+                                <p>{!! $subject->overview !!}</p>
 
-                                <a href="/courses/{{ $course->id }}" class="btn btn-primary fa-pull-right">View
-                                    Course</a>
+                                <a href="/subjects/{{ $subject->id }}" class="btn btn-primary fa-pull-right">View
+                                    Subject</a>
 
                             </blockquote>
                         </div>

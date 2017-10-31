@@ -14,7 +14,7 @@
                     <table class="table table-bordered table-striped table-sm">
                         <thead>
                         <tr>
-                            <th>Course Title</th>
+                            <th>Subject Title</th>
                             <th>Venue Name</th>
                             <th>Start Date</th>
                             <th>Capacity</th>
@@ -25,7 +25,7 @@
                         <tbody>
                         @foreach($user->lessons as $lesson)
                             <tr>
-                                <td>{{ $lesson->course->title }}</td>
+                                <td>{{ $lesson->subject->title }}</td>
                                 <td>{{ $lesson->venue->name }}</td>
                                 <td>{{ $lesson->start_date }}</td>
                                 <td>{{ $lesson->capacity }}</td>

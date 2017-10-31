@@ -1,7 +1,7 @@
 @extends('public')
 
 @section('title')
-    View Course
+    View Subject
 @endsection
 
 @section('content')
@@ -23,37 +23,37 @@
 
                             <div class="row">
                                 <div class="col-3 info-heading">
-                                    <strong>Course Title: </strong>
+                                    <strong>Subject Title: </strong>
                                 </div>
-                                <div class="col-3 info-body">{{ $course->title }}</div>
+                                <div class="col-3 info-body">{{ $subject->title }}</div>
                             </div>
 
                             <div class="row">
                                 <div class="col-3 info-heading">
-                                    <strong>Price of Course: </strong>
+                                    <strong>Price of Subject: </strong>
                                 </div>
-                                <div class="col-3 info-body">£{{ $course->price }}</div>
+                                <div class="col-3 info-body">£{{ $subject->price }}</div>
                             </div>
 
                             <div class="row">
                                 <div class="col-3 info-heading">
                                     <strong>Qualification Gained: </strong>
                                 </div>
-                                <div class="col-3 info-body">{{ $course->qualification}}</div>
+                                <div class="col-3 info-body">{{ $subject->qualification}}</div>
                             </div>
 
                             <div class="row">
                                 <div class="col-3 info-heading">
                                     <strong>Awarding Body: </strong>
                                 </div>
-                                <div class="col-3 info-body">{{ $course->awarded_by}}</div>
+                                <div class="col-3 info-body">{{ $subject->awarded_by}}</div>
                             </div>
 
                             <div class="row">
                                 <div class="col-3 info-heading">
-                                    <strong>Course Duration: </strong>
+                                    <strong>Subject Duration: </strong>
                                 </div>
-                                <div class="col-3 info-body">{{ $course->duration }} days</div>
+                                <div class="col-3 info-body">{{ $subject->duration }} days</div>
                             </div>
 
                         </blockquote>
@@ -62,12 +62,12 @@
 
                 <div class="card">
                     <div class="card-header">
-                        <b>Course Overview</b>
+                        <b>Subject Overview</b>
                     </div>
                     <div class="card-block">
                         <blockquote class="card-blockquote">
 
-                            {!! $course->overview !!}
+                            {!! $subject->overview !!}
 
                         </blockquote>
                     </div>
@@ -75,12 +75,12 @@
 
                 <div class="card">
                     <div class="card-header">
-                        <b>Course Description</b>
+                        <b>Subject Description</b>
                     </div>
                     <div class="card-block">
                         <blockquote class="card-blockquote">
 
-                            {!! $course->description !!}
+                            {!! $subject->description !!}
 
                         </blockquote>
                     </div>
@@ -88,12 +88,12 @@
 
                 <div class="card">
                     <div class="card-header">
-                        <b>Who is this course for?</b>
+                        <b>Who is this subject for?</b>
                     </div>
                     <div class="card-block">
                         <blockquote class="card-blockquote">
 
-                            {!! $course->who_for !!}
+                            {!! $subject->who_for !!}
 
                         </blockquote>
                     </div>
@@ -101,12 +101,12 @@
 
                 <div class="card">
                     <div class="card-header">
-                        <b>Course Requirements</b>
+                        <b>Subject Requirements</b>
                     </div>
                     <div class="card-block">
                         <blockquote class="card-blockquote">
 
-                            {!! $course->requirements !!}
+                            {!! $subject->requirements !!}
 
                         </blockquote>
                     </div>
@@ -119,7 +119,7 @@
                     <div class="card-block">
                         <blockquote class="card-blockquote">
 
-                            {!! $course->career_path !!}
+                            {!! $subject->career_path !!}
 
                         </blockquote>
                     </div>

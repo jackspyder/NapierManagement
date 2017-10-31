@@ -1,15 +1,15 @@
 @extends('master')
 
 @section('title')
-    View Course
+    View Subject
 @endsection
 
 @section('content')
 
-    <h3>Course View Page</h3>
+    <h3>subject View Page</h3>
 
     <div class="container">
-        <a href="/admin/courses/{{ $course->id }}/edit" class="btn btn-primary fa-pull-right">Edit Course</a>
+        <a href="/admin/subjects/{{ $subject->id }}/edit" class="btn btn-primary fa-pull-right">Edit Subject</a>
         <div class="row">
 
             <div class="col-md-12">
@@ -23,11 +23,11 @@
                         <blockquote class="card-blockquote">
 
                             <ul class="list">
-                                <li><b>Course Title: </b>{{ $course->title }}</li>
-                                <li><b>Price of Course: </b>£{{ $course->price }}</li>
-                                <li><b>Qualification Gained: </b>{{ $course->qualification }}</li>
-                                <li><b>Awarding Body: </b>{{ $course->awarded_by }}</li>
-                                <li><b>Course Duration: </b>{{ $course->duration }} days</li>
+                                <li><b>Subject Title: </b>{{ $subject->title }}</li>
+                                <li><b>Price of Subject: </b>£{{ $subject->price }}</li>
+                                <li><b>Qualification Gained: </b>{{ $subject->qualification }}</li>
+                                <li><b>Awarding Body: </b>{{ $subject->awarded_by }}</li>
+                                <li><b>Subject Duration: </b>{{ $subject->duration }} days</li>
                             </ul>
 
                         </blockquote>
@@ -36,12 +36,12 @@
 
                 <div class="card">
                     <div class="card-header">
-                        <b>Course Overview</b>
+                        <b>Subject Overview</b>
                     </div>
                     <div class="card-block">
                         <blockquote class="card-blockquote">
 
-                            {{ $course->overview }}
+                            {{ $subject->overview }}
 
                         </blockquote>
                     </div>
@@ -49,12 +49,12 @@
 
                 <div class="card">
                     <div class="card-header">
-                        <b>Course Description</b>
+                        <b>Subject Description</b>
                     </div>
                     <div class="card-block">
                         <blockquote class="card-blockquote">
 
-                            {{ $course->description }}
+                            {{ $subject->description }}
 
                         </blockquote>
                     </div>
@@ -62,12 +62,12 @@
 
                 <div class="card">
                     <div class="card-header">
-                        <b>Who is this course for?</b>
+                        <b>Who is this Subject for?</b>
                     </div>
                     <div class="card-block">
                         <blockquote class="card-blockquote">
 
-                            {{ $course->who_for }}
+                            {{ $subject->who_for }}
 
                         </blockquote>
                     </div>
@@ -75,12 +75,12 @@
 
                 <div class="card">
                     <div class="card-header">
-                        <b>Course Requirements</b>
+                        <b>Subject Requirements</b>
                     </div>
                     <div class="card-block">
                         <blockquote class="card-blockquote">
 
-                            {{ $course->requirements }}
+                            {{ $subject->requirements }}
 
                         </blockquote>
                     </div>
@@ -93,7 +93,7 @@
                     <div class="card-block">
                         <blockquote class="card-blockquote">
 
-                            {{ $course->career_path}}
+                            {{ $subject->career_path}}
 
                         </blockquote>
                     </div>
@@ -102,7 +102,7 @@
             </div>
         </div>
         <div class="col-12">
-            {{ Form::open(['route' => ['courses.destroy', $course->id],'class' => 'pull-left']) }}
+            {{ Form::open(['route' => ['subjects.destroy', $subject->id],'class' => 'pull-left']) }}
             {{ Form::hidden('_method', 'DELETE') }}
             {{ Form::submit('Delete this Event!',['class' => 'btn btn-danger pull-right'])}}
             {{ Form::close() }}
