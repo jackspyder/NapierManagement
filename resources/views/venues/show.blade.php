@@ -58,7 +58,12 @@
                             <br>
                             {!! $venue->location !!}
 
-
+                            <div class="col-3">
+                                {{ Form::open(['route' => ['venues.destroy', $venue->id],'class' => 'pull-left']) }}
+                                {{ Form::hidden('_method', 'DELETE') }}
+                                {{ Form::submit('Delete this Event!',['class' => 'btn btn-danger'])}}
+                                {{ Form::close() }}
+                            </div>
                         </blockquote>
                     </div>
                 </div>

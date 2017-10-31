@@ -95,8 +95,13 @@
                                     <a href="/admin/lessons/{{ $lesson->id }}/edit" class="btn btn-primary">Edit
                                         Lesson</a>
                                 </div>
+<div class="col-3">
+                                {{ Form::open(['route' => ['lessons.destroy', $lesson->id],'class' => 'pull-left']) }}
+                                {{ Form::hidden('_method', 'DELETE') }}
+                                {{ Form::submit('Delete this Event!',['class' => 'btn btn-danger'])}}
+                                {{ Form::close() }}
                             </div>
-
+                            </div>
                         </blockquote>
                     </div>
                 </div>

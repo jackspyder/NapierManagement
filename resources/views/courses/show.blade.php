@@ -15,7 +15,6 @@
             <div class="col-md-12">
 
 
-
                 <div class="card">
                     <div class="card-header">
                         <b>Details</b>
@@ -98,8 +97,15 @@
 
                         </blockquote>
                     </div>
+
                 </div>
             </div>
+        </div>
+        <div class="col-12">
+            {{ Form::open(['route' => ['courses.destroy', $course->id],'class' => 'pull-left']) }}
+            {{ Form::hidden('_method', 'DELETE') }}
+            {{ Form::submit('Delete this Event!',['class' => 'btn btn-danger pull-right'])}}
+            {{ Form::close() }}
         </div>
     </div>
 
