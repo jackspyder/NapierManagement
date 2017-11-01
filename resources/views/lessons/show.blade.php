@@ -124,9 +124,12 @@
                     </blockquote>
                 </div>
             </div>
+        </div>
+    </div>
 
-            <h3>Enrolled Users:</h3>
-            <table class="table table-responsive table-hover table-outline">
+    <div class="row justify-content-center">
+        <div class="col-10">
+            <table class="table table-hover table-outline">
                 <thead class="thead-default">
                 <tr>
                     <th class="text-center"><i class="icon-people"></i>
@@ -143,7 +146,8 @@
                     <tr>
                         <td class="text-center">
                             <div class="avatar">
-                                <img src="{{ $user->active_avatar }}" class="img-avatar" alt="{{ $user->email }}">
+                                <img src="{{ $user->active_avatar }}" class="img-avatar"
+                                     alt="{{ $user->email }}">
                             </div>
                         </td>
                         <td>
@@ -168,13 +172,8 @@
                         </td>
                     </tr><!--/tr-->
                 @endforeach
-
                 </tbody>
-
-
             </table>
         </div>
     </div>
-    </div>
-
 @stop
