@@ -129,7 +129,8 @@
 
     <div class="row justify-content-center">
         <div class="col-10">
-            <table class="table table-hover table-outline">
+            <h3>Enrolled Users</h3>
+            <table class="table table-hover table-outline table-striped table-bordered">
                 <thead class="thead-default">
                 <tr>
                     <th class="text-center"><i class="icon-people"></i>

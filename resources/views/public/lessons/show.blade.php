@@ -138,7 +138,3 @@
         </div>
     </div>
 @stop
-
-@section('scripts')
-
-@endsection

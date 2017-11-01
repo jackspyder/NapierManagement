@@ -5,11 +5,33 @@
 @endsection
 
 @section('content')
+
+    <div class="row justify-content-center">
+        <div class="col-10">
+            <!-- will be used to show any messages -->
+            @if (Session::has('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ Session::get('success') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+            @elseif(Session::has('warning'))
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    {{ Session::get('warning') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
+        </div>
+    </div>
+
     <div class="row justify-content-center">
 
         @foreach($subjects as $subject)
             <div class="col-5">
-
                 <div class="card">
                     <div class="card-header">
                         <b>{{ $subject->title }}</b>
@@ -67,5 +89,5 @@
             </div>
         @endforeach
     </div>
-    </div>
+
 @stop
