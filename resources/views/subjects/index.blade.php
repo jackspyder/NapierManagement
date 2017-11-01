@@ -63,7 +63,7 @@
                                     <?php $users = 0; ?>
 
                                 </td>
-                                <td><a href="/admin/subjects/{{ $subject->id }}" class="btn-sm btn-success">View</a>
+                                <td class="text-center"><a href="/admin/subjects/{{ $subject->id }}" class="btn-sm btn-primary">View</a>
                                 </td>
                             </tr>
                         @endforeach
@@ -74,6 +74,18 @@
             </div>
         </div>
         <!--/.col-->
+
     </div>
+
+    <div class="row justify-content-center">
+
+        <div class="col-10">
+            <a class="btn btn-primary pull-right" href="{{ url('/admin/subjects/create') }}">Add New Subject</a>
+
+        </div>
+
+    </div>
+
+
     <!--/.row-->
 @stop

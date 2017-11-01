@@ -49,7 +49,7 @@
                             @endforeach
                         </td>
                         <td>
-                            <a href="/admin/users/{{ $user->id }}" class="btn-sm btn-success">View</a>
+                            <a href="/admin/users/{{ $user->id }}" class="btn-sm btn-primary">View</a>
                         </td>
                     </tr><!--/tr-->
                 @endforeach

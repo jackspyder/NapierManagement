@@ -1,15 +1,14 @@
-<!-- Bootstrap and necessary plugins -->
-    {{--<script src="{{ asset('js/tether.min.js') }}"></script>--}}
-    {{--<script src="{{ asset('js/bootstrap.min.js') }}"></script>--}}
-    {{--<script src="{{ asset('js/pace.min.js') }}"></script>--}}
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+        integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+        integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
 
-{{--<!-- Plugins and scripts required by all views -->--}}
-    {{--<script src="{{ asset('js/Chart.min.js') }}"></script>--}}
 
 <!-- GenesisUI main scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('js/app.js') }}"></script>
 
-<!-- Plugins and scripts required by this views -->
-    
-<!-- Custom scripts required by this view -->
-    {{--<script src="{{ asset('js/main.js') }}"></script>--}}

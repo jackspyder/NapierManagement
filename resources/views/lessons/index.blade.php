@@ -55,7 +55,7 @@
                                 <td>{{ $lesson->capacity }}</td>
                                 <td>{{ $lesson->spaces_left }}</td>
                                 <td>{{ $lesson->users->count() }}</td>
-                                <td><a href="/admin/lessons/{{ $lesson->id }}" class="btn-sm btn-success">View</a></td>
+                                <td class="text-center"><a href="/admin/lessons/{{ $lesson->id }}" class="btn-sm btn-primary">View</a></td>
                             </tr>
                         @endforeach
 
@@ -65,6 +65,16 @@
             </div>
         </div>
         <!--/.col-->
+
     </div>
     <!--/.row-->
+
+    <div class="row justify-content-center">
+
+        <div class="col-10">
+            <a class="btn btn-primary pull-right" href="{{ url('/admin/lessons/create') }}">Add New Class</a>
+
+        </div>
+
+    </div>
 @stop

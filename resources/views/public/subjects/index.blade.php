@@ -58,7 +58,7 @@
 
                             <p>{!! $subject->summary !!}</p>
 
-                            <a href="/subjects/{{ $subject->id }}" class="btn btn-primary fa-pull-right">View
+                            <a href="/subjects/{{ $subject->id }}" class="btn btn-primary pull-right">View
                                 Subject</a>
 
                         </blockquote>

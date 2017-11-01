@@ -4,8 +4,8 @@
 @endsection
 @section('content')
 
-    <div class="row">
-        <div class="col-lg-12">
+    <div class="row justify-content-center">
+        <div class="col-10">
             <div class="card">
                 <div class="card-header">
                     <i class="fa fa-align-justify"></i> My Bookings
@@ -30,7 +30,7 @@
                                 <td>{{ $lesson->start_date }}</td>
                                 <td>{{ $lesson->capacity }}</td>
                                 <td>{{ $lesson->spaces_left }}</td>
-                                <td><a href="/classes/{{ $lesson->id }}" class="btn-sm btn-success">View</a></td>
+                                <td class="text-center"><a href="/classes/{{ $lesson->id }}" class="btn-sm btn-primary">View</a></td>
                             </tr>
                         @endforeach
 
