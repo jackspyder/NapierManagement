@@ -51,7 +51,7 @@
                                 <td>{{ $venue->city }}</td>
                                 <td>{{ $venue->post_code }}</td>
                                 <td>{{ $venue->lessons->count() }}</td>
-                                <td><a href="/admin/venues/{{ $venue->id }}" class="btn-sm btn-success">View</a></td>
+                                <td class="text-center"><a href="/admin/venues/{{ $venue->id }}" class="btn-sm btn-primary">View</a></td>
                             </tr>
                         @endforeach
 
@@ -61,6 +61,15 @@
             </div>
         </div>
         <!--/.col-->
+    </div>
+
+    <div class="row justify-content-center">
+
+        <div class="col-10">
+            <a class="btn btn-primary pull-right" href="{{ url('/admin/venues/create') }}">Add New Venue</a>
+
+        </div>
+
     </div>
     <!--/.row-->
 @stop

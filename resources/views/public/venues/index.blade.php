@@ -30,7 +30,7 @@
                                 <td>{{ $venue->city }}</td>
                                 <td>{{ $venue->post_code }}</td>
                                 <td>{{ $venue->lessons->count() }}</td>
-                                <td><a href="/venues/{{ $venue->id }}" class="btn-sm btn-success">View</a></td>
+                                <td class="text-center"><a href="/venues/{{ $venue->id }}" class="btn-sm btn-primary">View</a></td>
                             </tr>
                         @endforeach
 

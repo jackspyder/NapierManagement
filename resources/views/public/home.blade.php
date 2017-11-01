@@ -71,7 +71,7 @@
               <i class="fa fa-circle fa-stack-2x fa-primary"></i>
               <i class="fa fa-graduation-cap fa-stack-1x fa-inverse"></i>
             </span>
-                        <h4 class="service-heading">Subjects</h4>
+                        <h4 href="{{ url('/subjects') }}" class="service-heading">Subjects</h4>
                         <p class="text-muted">Take a look at the fantastic subjects we have on offer.</p>
                     </div>
                     <div class="col-md-4">
