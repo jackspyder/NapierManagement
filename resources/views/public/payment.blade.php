@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('title')
-    View Class
+    Payment
 @endsection
 
 @section('content')
@@ -102,33 +102,18 @@
                             <hr>
                             <div class="row justify-content-around">
 
+                                {{--<div class="col-3">--}}
+                                {{--<a href="{{ asset('docs/reg_form.pdf' )}}" class="btn btn-success">PDF Booking--}}
+                                {{--form</a>--}}
+                                {{--</div>--}}
+                                {{----}}
+                                <div id="app" class="col-3">
+                                    <checkout-form :user="{{ Auth::user() }}"
+                                                   :lesson="{{ $lesson }}"></checkout-form>
 
-                                <div class="col-3">
-                                    <a href="/venues/{{ $lesson->venue->id }}" class="btn btn-primary">View Venue</a>
+
                                 </div>
 
-
-                                <div class="col-3">
-                                    <a href="/subjects/{{ $lesson->subject->id }}" class="btn btn-primary">Subject
-                                        Overview</a>
-                                </div>
-
-                                <div class="col-3">
-                                    <a href="{{ asset('docs/reg_form.pdf' )}}" class="btn btn-success">PDF Booking
-                                        form</a>
-                                </div>
-
-                                <div class="col-3">
-                                    @if(Auth::guest())
-                                        <a href="/login" class="btn btn-primary">Login to Book</a>
-                                    @else
-                                        {{ Form::open(['action' => ['PurchasesController@check']]) }}
-                                        {{ Form::hidden('user', Auth::user()->id)}}
-                                        {{ Form::hidden('lesson', $lesson->id)}}
-                                        {{ Form::submit('Book Online!', array('class' => 'btn btn-success')) }}
-                                        {{ Form::close() }}
-                                    @endif
-                                </div>
                             </div>
 
                         </blockquote>
@@ -137,6 +122,10 @@
             </div>
         </div>
     </div>
+
+    <script src="https://checkout.stripe.com/checkout.js"></script>
+
+
 @stop
 
 @section('scripts')

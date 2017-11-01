@@ -36,10 +36,10 @@
     @else
 
         <ul class="nav navbar-nav ml-auto">
-            {{--<li class="nav-item d-md-down-none">--}}
-                {{--<a class="nav-link navbar-toggler aside-menu-toggler" href="#"><i class="icon-basket"></i><span--}}
-                            {{--class="badge badge-pill badge-danger">2</span></a>--}}
-            {{--</li>--}}
+            <li class="nav-item d-md-down-none">
+                <a class="nav-link" href="/basket"><i class="icon-basket"></i><span
+                            class="badge badge-pill badge-danger">2</span></a>
+            </li>
 
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button"

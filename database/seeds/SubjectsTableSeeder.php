@@ -13,7 +13,7 @@ class SubjectsTableSeeder extends Seeder
     {
         DB::table('subjects')->insert([
             [
-                'price' => '800',
+                'price' => '80000',
                 'duration' => '5',
                 'title' => 'PRINCE2',
                 'qualification' => 'PRINCE2 Foundation',
@@ -25,7 +25,7 @@ Using PRINCE2 provides you with greater control of resources, and the ability to
             ], //Venue One
 
             [
-                'price' => '600',
+                'price' => '60000',
                 'duration' => '4',
                 'title' => 'Programme Management',
                 'qualification' => 'ND in Program Management',
@@ -40,7 +40,7 @@ Our programme management course will train you to interact effectively with thos
             ], //Venue One
 
             [
-                'price' => '200',
+                'price' => '20000',
                 'duration' => '2',
                 'title' => 'Change Management',
                 'qualification' => 'HND',
@@ -61,7 +61,7 @@ Our change management course is accredited by The Change Management Institute (C
             ], //Venue One
 
             [
-                'price' => '700',
+                'price' => '70000',
                 'duration' => '5',
                 'title' => 'ITIL',
                 'qualification' => 'B ENG',
@@ -78,7 +78,7 @@ Our course allows you to understand service management as a practice, the purpos
             ], //Venue One
 
             [
-                'price' => '500',
+                'price' => '50000',
                 'duration' => '4',
                 'title' => 'Risk management',
                 'qualification' => 'Certification',

@@ -31,6 +31,10 @@ Route::get('login/{driver}/callback', ['as' => 'socialAuthCallback', 'uses' => '
 Route::group(['middleware' => ['web']], function () {
     Route::view('/', 'public.home')->name('home');
 
+    Route::post('purchases', 'PurchasesController@store');
+    Route::get('/payment', 'PurchasesController@payment');
+    Route::post('/check', 'PurchasesController@check');
+
     Route::get('/profile/{user}', 'UsersController@profile');
 
     Route::get('/subjects', 'PSubjectsController@index');
@@ -42,8 +46,6 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::get('/classes', 'PLessonsController@index');
     Route::get('/classes/{lesson}', 'PLessonsController@show');
-
-    Route::resource('/bookings', 'BookingsController');
 
     Route::get('/download', function () {
         return response()->file('public/docs/', 'reg_form.pdf');

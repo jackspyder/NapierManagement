@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+
+    <html lang="{{ app()->getLocale() }}">
 
 <head>
     <meta charset="utf-8">
@@ -8,6 +9,9 @@
     <meta name="description" content="Napier Management Training Prototype">
     <meta name="author" content="Jack Powell">
     <link rel="shortcut icon" href="{{ asset('img/favicon.png') }}">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>NMT | @yield('title')</title>
 
@@ -20,39 +24,44 @@
 
     @yield('stylesheet')
 
+    <script>
+        var nmt = {
+            stripeKey: "{{config('services.stripe.key')}}"
+        };
+    </script>
 </head>
-    <body class="app header-fixed sidebar-fixed">
+<body class="app header-fixed sidebar-fixed">
 
-        <!--navbar-->
-        @include('layout.header')
-        <div class="app-body">
+<!--navbar-->
+@include('layout.header')
+<div class="app-body">
 
-            <!-- Sidebar -->
-        @include('layout.sidebar')
-        <!-- End of Sidebar -->
+    <!-- Sidebar -->
+@include('layout.sidebar')
+<!-- End of Sidebar -->
 
-            <!-- Main content -->
-            <main class="main">
+    <!-- Main content -->
+    <main class="main">
 
-                <!-- Breadcrumb -->
-            @include('layout.breadcrumb')
-            <!-- End of Breadcrumb -->
+        <!-- Breadcrumb -->
+    @include('layout.breadcrumb')
+    <!-- End of Breadcrumb -->
 
-                <!-- Content -->
-                <div class="container-fluid">
-                    <div class="animated fadeIn">
+        <!-- Content -->
+        <div class="container-fluid">
+            <div class="animated fadeIn">
 
-                        @yield('content')
+                @yield('content')
 
-                    </div>
-                </div>
-            </main>
+            </div>
         </div>
-        <!-- Footer -->
-        @include('layout.footer')
+    </main>
+</div>
+<!-- Footer -->
+@include('layout.footer')
 
-        <!-- Scripts -->
-        @include('layout.scripts')
-        @yield('scripts')
-        </body>
+<!-- Scripts -->
+@include('layout.scripts')
+@yield('scripts')
+</body>
 </html>
