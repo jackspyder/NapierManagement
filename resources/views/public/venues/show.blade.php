@@ -114,7 +114,8 @@
                                 <td>{{ $lesson->subject->duration }}</td>
                                 <td>{{ $lesson->capacity }}</td>
                                 <td>{{ $lesson->spaces_left }}</td>
-                                <td class="text-center"><a href="/classes/{{ $lesson->id }}" class="btn-sm btn-primary">View</a></td>
+                                <td class="text-center"><a href="/classes/{{ $lesson->id }}" class="btn-sm btn-primary">View</a>
+                                </td>
                             </tr>
                         @endforeach
 

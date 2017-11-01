@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('title')
-    View Subject
+    {{ $subject->title }}
 @endsection
 
 @section('content')
