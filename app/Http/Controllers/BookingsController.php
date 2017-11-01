@@ -10,22 +10,14 @@ use Illuminate\Support\Facades\Session;
 
 class BookingsController extends Controller
 {
-
-    public function check()
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
     {
-
-        $user = User::findOrFail(request('user'));
-        $lesson = Lesson::findOrFail(request('lesson'));
-
-        if ($user->lessons->contains($lesson->id)) {
-            Session::flash('warning', 'You are already booked on this course!');
-
-            return redirect()->back();
-        } else {
-
-            return view('public.payment', compact('lesson'));
-        }
-
+        $user = Auth::user();
+        return view('public.bookings.index', compact('user'));
     }
-
 }

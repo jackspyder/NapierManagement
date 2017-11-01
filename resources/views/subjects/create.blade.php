@@ -37,7 +37,7 @@
                         </div>
 
                         <div class="form-group">
-                            {{ Form::label('price', 'Subject Price (Pounds)') }}
+                            {{ Form::label('price', 'Subject Price (IN PENCE!)') }}
                             {{ Form::number('price', null, array('class' => 'form-control')) }}
                         </div>
 
@@ -58,12 +58,12 @@
 
                         <div class="form-group">
                             {{ Form::label('summary', 'Short Subject Summary') }}
-                            {{ Form::textarea('summary', null, array('class' => 'form-control', 'id' => 'summary')) }}
+                            {{ Form::textarea('summary', null, array('class' => 'form-control')) }}
                         </div>
 
                         <div class="form-group">
                             {{ Form::label('description', 'Subject Description') }}
-                            {{ Form::textarea('description', null, array('class' => 'form-control', 'id' => 'description')) }}
+                            {{ Form::textarea('description', null, array('class' => 'form-control')) }}
                         </div>
 
                         {{ Form::submit('Add Subject', array('class' => 'btn btn-success pull-right')) }}

@@ -37,7 +37,7 @@
                         </div>
 
                         <div class="form-group">
-                            {{ Form::label('price', 'Subject Price (Pounds)') }}
+                            {{ Form::label('price', 'Subject Price (IN PENCE!)') }}
                             {{ Form::number('price', null, array('class' => 'form-control')) }}
                         </div>
 

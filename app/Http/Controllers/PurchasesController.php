@@ -27,6 +27,7 @@ class PurchasesController extends Controller
             Session::flash('warning', 'You are already booked on this course!');
 
             return redirect()->back();
+
         } else {
 
             return view('public.payment', compact('lesson'));

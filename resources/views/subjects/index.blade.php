@@ -49,15 +49,18 @@
                         @foreach($subjects as $subject)
                             <tr>
                                 <td>{{ $subject->title }}</td>
-                                <td>{{ $subject->price }}</td>
+                                <td>£{{ $subject->price / 100 }}</td>
                                 <td>{{ $subject->duration }}</td>
                                 <td>{{ $subject->lessons->count() }}</td>
                                 <td>
 
                                     @foreach($subject->lessons as $lesson )
+
                                         @continue($users = $users + $lesson->users->count())
+
                                     @endforeach
-                                    {{ $users }}
+                                        {{ $users }}
+                                    <?php $users = 0; ?>
 
                                 </td>
                                 <td><a href="/admin/subjects/{{ $subject->id }}" class="btn-sm btn-success">View</a>

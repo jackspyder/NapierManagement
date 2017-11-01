@@ -35,6 +35,8 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/payment', 'PurchasesController@payment');
     Route::post('/check', 'PurchasesController@check');
 
+    Route::get('/bookings', 'BookingsController@index');
+
     Route::get('/profile/{user}', 'UsersController@profile');
 
     Route::get('/subjects', 'PSubjectsController@index');

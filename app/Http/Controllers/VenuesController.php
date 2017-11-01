@@ -118,7 +118,7 @@ class VenuesController extends Controller
 
         if($venue->lessons()->count() > 0){
             Session::flash('warning', 'You cannot delete a venue in use!');
-            return redirect('/admin/venues');
+            return redirect()->back();
         }else{
 
             $venue->delete();

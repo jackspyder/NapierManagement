@@ -8,6 +8,28 @@
 
     <div class="row justify-content-center">
         <div class="col-10">
+            <!-- will be used to show any messages -->
+            @if (Session::has('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ Session::get('success') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+            @elseif(Session::has('warning'))
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    {{ Session::get('warning') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-10">
             <div class="card card-inverse" style="background-color: #333; border-color: #333;">
                 <div class="card-block">
                     <div class="row">

@@ -28,7 +28,7 @@
                                 <div class="col-3 info-heading">
                                     <strong>Price of Subject: </strong>
                                 </div>
-                                <div class="col-auto info-body">£{{ $subject->price }}</div>
+                                <div class="col-auto info-body">£{{ $subject->price / 100 }}</div>
                             </div>
 
                             <div class="row">

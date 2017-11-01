@@ -25687,8 +25687,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['user', 'lesson'],
@@ -25697,10 +25695,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         return {
             stripeEmail: '',
             stripeToken: '',
-            //                product_id: '',
             lesson_id: '',
             user_id: ''
-            //                forge: '{{ csrf_field() }}'
         };
     },
     created: function created() {
@@ -25714,11 +25710,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
                 _this.stripeToken = _token.id;
                 _this.stripeEmail = _token.email;
-                //                    this.product_id = this.lesson.subject.id;
                 _this.user_id = _this.user.id;
                 _this.lesson_id = _this.lesson.id;
 
-                //document.querySelector('#checkout-form').submit();
                 axios.post('/purchases', _this.$data).then(function (response) {
                     window.location = response.data.redirect;
                 });

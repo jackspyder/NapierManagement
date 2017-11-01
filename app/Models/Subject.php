@@ -14,11 +14,8 @@ class Subject extends Model
         'title',
         'qualification',
         'awarded_by',
-        'overview',
+        'summary',
         'description',
-        'who_for',
-        'requirements',
-        'career_path'
     ];
 
     public function lessons()

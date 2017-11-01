@@ -120,7 +120,7 @@ class LessonsController extends Controller
 
         $lesson->save();
 
-        Session::flash('success', 'Successfully updated Lesson!');
+        Session::flash('success', 'Successfully updated Class!');
 
         return redirect('/admin/lessons');
     }
@@ -136,12 +136,12 @@ class LessonsController extends Controller
         $lesson = Lesson::findOrFail($id);
 
         if ($lesson->users()->count() > 0) {
-            Session::flash('warning', 'You cannot delete a class in use!');
-            return redirect('/admin/lessons');
+            Session::flash('warning', 'You cannot delete a Class in use!');
+            return redirect()->back();
         } else {
 
             $lesson->delete();
-            Session::flash('success', 'Class Deleted');
+            Session::flash('success', 'Class Deleted!');
             return redirect('/admin/lessons');
         }
     }

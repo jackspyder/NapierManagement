@@ -20,7 +20,7 @@ class SubjectsController extends Controller
     public function index()
     {
         $subjects = Subject::all();
-        $users = 0;
+        $users = 0; //this is to initialise the count on the view, dont delete it.
 
         return view('subjects.index', compact('subjects', 'users'));
     }
@@ -50,11 +50,8 @@ class SubjectsController extends Controller
             'title' => 'required',
             'qualification' => 'required',
             'awarded_by' => 'required',
-            'overview' => 'required',
+            'summary' => 'required',
             'description' => 'required',
-            'who_for' => 'required',
-            'requirements' => 'required',
-            'career_path' => 'required'
         ]);
 
 
@@ -116,18 +113,16 @@ class SubjectsController extends Controller
             'title' => 'required',
             'qualification' => 'required',
             'awarded_by' => 'required',
-            'overview' => 'required',
+            'summary' => 'required',
             'description' => 'required',
-            'who_for' => 'required',
-            'requirements' => 'required',
-            'career_path' => 'required'
+
         ]);
 
         $subject->update($request->all());
 
         Session::flash('success', 'Successfully updated Subject!');
         $subject->save();
-        return redirect('/admin/subjects');
+        return redirect()->back();
     }
 
     /**
@@ -142,7 +137,7 @@ class SubjectsController extends Controller
 
         if ($subject->lessons()->count() > 0) {
             Session::flash('warning', 'You cannot delete a subject in use!');
-            return redirect('/admin/subjects');
+            return redirect()->back();
         } else {
 
             $subject->delete();
