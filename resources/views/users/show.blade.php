@@ -1,65 +1,119 @@
 @extends('master')
 
 @section('title')
-    Dashboard
+    User View
 @endsection
 
 @section('content')
-    <style>
-        .btn {
-            border-radius: 0;
-        }
 
-        .btn-md {
-            border-width: 0;
-            outline: none;
-            border-radius: 0;
-            box-shadow: 2px 2px 2px rgba(0, 0, 0, .6);
-            cursor: pointer;
-        }
-    </style>
+    <div class="row justify-content-center">
+        <div class="col-10">
+            <!-- will be used to show any messages -->
+            @if (Session::has('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ Session::get('success') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12">
-                <div class="card card-inverse" style="background-color: #333; border-color: #333;">
-                    <div class="card-block">
-                        <div class="row">
-                            <div class="col-md-8 col-sm-8">
-                                <h2 class="card-title">Name: {{ $user->name }}</h2>
-                                <p class="card-text"><strong>Email: </strong> {{ $user->email }}</p>
-                                <p class="card-text"><strong>Member Since: </strong> {{ $user->created_at }}</p>
-                                <p class="card-text"><strong>Access Level: </strong> @if($user->is_admin ==  1)
+            @elseif(Session::has('warning'))
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    {{ Session::get('warning') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-10">
+            <div class="card card-inverse" style="background-color: #333; border-color: #333;">
+                <div class="card-block">
+                    <div class="row">
+                        <div class="col-md-8 col-sm-8">
+                            <h2 class="card-title">Name: {{ $user->name }}</h2>
+
+                            <div class="row">
+                                <div class="col-2 info-heading">
+                                    <p><strong>Email: </strong></p>
+                                </div>
+                                <div class="col-auto card-text">{{ $user->email}}</div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-2 info-heading">
+                                    <p><strong>Member Since: </strong></p>
+                                </div>
+                                <div class="col-auto card-text">{{ $user->created_at}}</div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-2 info-heading">
+                                    <p><strong>Access Level: </strong></p>
+                                </div>
+                                <div class="col-auto card-text">@if($user->is_admin ==  1)
                                         Administrator
                                     @else
                                         Member
-                                    @endif</p>
-                                <p class="card-text"><strong>Address: </strong> {{ $user->profile->address }}</p>
-                                <p class="card-text"><strong>Post Code: </strong> {{ $user->profile->post_code}}</p>
-                                <p class="card-text"><strong>Date of Birth: </strong> {{ $user->profile->dob }}</p>
-                                <p class="card-text"><strong>Occupation: </strong> {{ $user->profile->occupation}}</p>
-                                <p class="card-text"><strong>Company: </strong> {{ $user->profile->company }}</p>
-                                <p class="card-text"><strong>Linked via:</strong>
-                                    @foreach($user->accounts as $account)
-                                        <br>
-                                        <i class="fa fa-{{ $account->provider_name }}"> {{ $account->provider_name }} </i>
-                                    @endforeach
-                                </p>
-
-                            </div>
-                            <div class="col-md-4 col-sm-4 text-center">
-                                <img src="{{ $user->active_avatar }}" height="180" width="180" alt=""
-                                     style="border-radius:50%;">
+                                    @endif</div>
                             </div>
 
+                            <div class="row">
+                                <div class="col-2 info-heading">
+                                    <p><strong>Address: </strong></p>
+                                </div>
+                                <div class="col-auto card-text">{{ $user->profile->address }}</div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-2 info-heading">
+                                    <p><strong>Post Code: </strong></p>
+                                </div>
+                                <div class="col-auto card-text">{{ $user->profile->post_code}}</div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-2 info-heading">
+                                    <p><strong>Date of Birth: </strong></p>
+                                </div>
+                                <div class="col-auto card-text">{{ $user->profile->dob }}</div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-2 info-heading">
+                                    <p><strong>Occupation: </strong></p>
+                                </div>
+                                <div class="col-auto card-text">{{ $user->profile->occupation}}</div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-2 info-heading">
+                                    <p><strong>Company: </strong></p>
+                                </div>
+                                <div class="col-auto card-text">{{ $user->profile->company }}</div>
+                            </div>
 
                         </div>
+                        <div class="col-md-4 col-sm-4 text-center">
+                            <img src="{{ $user->active_avatar }}" height="180" width="180" alt=""
+                                 style="border-radius:50%;">
+
+                            <p class="card-text"><p><strong>Linked via:</strong></p>
+                                @foreach($user->accounts as $account)
+                                    <br>
+                                    <i class="fa fa-2x fa-{{ $account->provider_name }}" style=""> {{ $account->provider_name }} </i>
+                                @endforeach
+                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
+
 
 
 @stop

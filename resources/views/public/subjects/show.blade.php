@@ -1,11 +1,10 @@
 @extends('master')
 
 @section('title')
-    Venue Entry
+    View Subject
 @endsection
 
 @section('content')
-
 
     <div class="row justify-content-center">
         <div class="col-10">
@@ -29,57 +28,65 @@
         </div>
     </div>
 
-
     <div class="row justify-content-center">
-
         <div class="col-10">
-
-
             <div class="card">
                 <div class="card-header">
-                    <b>Venue Details</b>
+                    <b>Details</b>
                 </div>
                 <div class="card-block">
                     <blockquote class="card-blockquote">
 
                         <div class="row">
                             <div class="col-3 info-heading">
-                                <strong>Venue Name: </strong>
+                                <strong>Subject Title: </strong>
                             </div>
-                            <div class="col-auto info-body">{{ $venue->name }}</div>
+                            <div class="col-auto info-body">{{ $subject->title }}</div>
                         </div>
-                        <br>
 
                         <div class="row">
                             <div class="col-3 info-heading">
-                                <strong>Venue Address: </strong>
+                                <strong>Price of Subject: </strong>
                             </div>
-                            <div class="col-auto info-body">{{ $venue->address }}</div>
+                            <div class="col-auto info-body">£{{ $subject->price / 100 }}</div>
                         </div>
-                        <br>
 
                         <div class="row">
                             <div class="col-3 info-heading">
-                                <strong>Venue City: </strong>
+                                <strong>Qualification Gained: </strong>
                             </div>
-                            <div class="col-auto info-body">{{ $venue->city }}</div>
+                            <div class="col-auto info-body">{{ $subject->qualification}}</div>
                         </div>
-
 
                         <div class="row">
                             <div class="col-3 info-heading">
-                                <strong>Venue Post-Code: </strong>
+                                <strong>Awarding Body: </strong>
                             </div>
-                            <div class="col-auto info-body">{{ $venue->post_code }}</div>
+                            <div class="col-auto info-body">{{ $subject->awarded_by}}</div>
                         </div>
-                        <hr>
+
                         <div class="row">
                             <div class="col-3 info-heading">
-                                <strong>Google Map Location: </strong>
+                                <strong>Subject Duration: </strong>
                             </div>
+                            <div class="col-auto info-body">{{ $subject->duration }} days</div>
                         </div>
-                        <br>
-                        {!! $venue->location !!}
+
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-10">
+            <div class="card">
+                <div class="card-header">
+                    <b>Subject Overview</b>
+                </div>
+                <div class="card-block">
+                    <blockquote class="card-blockquote">
+
+                        {{ $subject->summary }}
 
                     </blockquote>
                 </div>
@@ -88,45 +95,53 @@
     </div>
 
     <div class="row justify-content-center">
-        <div class="col-6">
-            {{ Form::open(['route' => ['venues.destroy', $venue->id],'class' => 'pull-left']) }}
-            {{ Form::hidden('_method', 'DELETE') }}
-            {{ Form::submit('Delete this Venue!',['class' => 'btn btn-danger'])}}
-            {{ Form::close() }}
-        </div>
-        <div class="col-4">
-            <a href="/admin/venues/{{ $venue->id }}/edit" class="btn btn-primary fa-pull-right">Edit Venue</a>
+        <div class="col-10">
+            <div class="card">
+                <div class="card-header">
+                    <b>Subject Description</b>
+                </div>
+                <div class="card-block">
+                    <blockquote class="card-blockquote">
+
+                        {{ $subject->description }}
+
+                    </blockquote>
+                </div>
+            </div>
         </div>
     </div>
-    <br>
 
     <div class="row justify-content-center">
         <div class="col-10">
             <div class="card">
                 <div class="card-header">
-                    <i class="fa fa-align-justify"></i> Classes at this venue
+                    <i class="fa fa-align-justify"></i> Currently Available Classes
                 </div>
                 <div class="card-block">
                     <table class="table table-bordered table-striped table-sm">
                         <thead>
                         <tr>
                             <th>Subject Title</th>
+                            <th>Venue Name</th>
+                            <th>City</th>
                             <th>Start Date</th>
+                            <th>Duration (Days)</th>
                             <th>Capacity</th>
                             <th>Spaces Left</th>
-                            <th>Members Enrolled</th>
                             <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($venue->lessons as $lesson)
+                        @foreach($subject->lessons as $lesson)
                             <tr>
                                 <td>{{ $lesson->subject->title }}</td>
+                                <td>{{ $lesson->venue->name }}</td>
+                                <td>{{ $lesson->venue->city }}</td>
                                 <td>{{ $lesson->start_date }}</td>
+                                <td>{{ $lesson->subject->duration }}</td>
                                 <td>{{ $lesson->capacity }}</td>
                                 <td>{{ $lesson->spaces_left }}</td>
-                                <td>{{ $lesson->users->count() }}</td>
-                                <td><a href="/admin/lessons/{{ $lesson->id }}" class="btn-sm btn-success">View</a></td>
+                                <td><a href="/classes/{{ $lesson->id }}" class="btn-sm btn-success">View</a></td>
                             </tr>
                         @endforeach
 
@@ -135,9 +150,5 @@
                 </div>
             </div>
         </div>
-        <!--/.col-->
     </div>
-    <!--/.row-->
-
-
 @stop

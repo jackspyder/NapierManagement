@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Course;
+use App\Models\Subject;
 use App\Models\Lesson;
 use App\Models\Venue;
 use Illuminate\Http\Request;
@@ -18,9 +18,7 @@ class LessonsController extends Controller
     public function index()
     {
         $lessons = Lesson::all();
-        $venues = Venue::all();
-        $courses = Course::all();
-        return view('lessons.index', compact('lessons', 'venues', 'courses'));
+        return view('lessons.index', compact('lessons'));
     }
 
     /**
@@ -30,9 +28,9 @@ class LessonsController extends Controller
      */
     public function create()
     {
-        $courses = Course::pluck('title', 'id');
+        $subjects = Subject::pluck('title', 'id');
         $venues = Venue::pluck('name', 'id');
-        return view('lessons.create', compact('venues', 'courses'));
+        return view('lessons.create', compact('venues', 'subjects'));
     }
 
     /**
@@ -53,12 +51,12 @@ class LessonsController extends Controller
         $lesson->spaces_left = $request['capacity'];
         $lesson->start_date = $request['start_date'];
         $lesson->capacity = $request['capacity'];
-        $lesson->course_id = $request['course_id'];
+        $lesson->subject_id = $request['subject_id'];
         $lesson->venue_id = $request['venue_id'];
 
         $lesson->save();
 
-        Session::flash('message', 'Successfully created Lesson!');
+        Session::flash('success', 'Successfully created Lesson!');
 
         return redirect('/admin/lessons');
 
@@ -88,10 +86,10 @@ class LessonsController extends Controller
     {
         $lesson = Lesson::findOrFail($id);
 
-        $courses = Course::pluck('title', 'id');
+        $subjects = Subject::pluck('title', 'id');
         $venues = Venue::pluck('name', 'id');
 
-        return view('lessons.edit', compact('lesson','venues', 'courses'));
+        return view('lessons.edit', compact('lesson','venues', 'subjects'));
 
 
     }
@@ -117,12 +115,12 @@ class LessonsController extends Controller
         $lesson->spaces_left = $request['capacity'] - $lesson->users()->count();
         $lesson->start_date = $request['start_date'];
 
-        $lesson->course_id = $request['course_id'];
+        $lesson->subject_id = $request['subject_id'];
         $lesson->venue_id = $request['venue_id'];
 
         $lesson->save();
 
-        Session::flash('message', 'Successfully updated Lesson!');
+        Session::flash('success', 'Successfully updated Class!');
 
         return redirect('/admin/lessons');
     }
@@ -138,12 +136,12 @@ class LessonsController extends Controller
         $lesson = Lesson::findOrFail($id);
 
         if ($lesson->users()->count() > 0) {
-            Session::flash('message', 'You cannot delete a class in use!');
-            return redirect('/admin/lessons');
+            Session::flash('warning', 'You cannot delete a Class in use!');
+            return redirect()->back();
         } else {
 
             $lesson->delete();
-            Session::flash('flash', 'Class Deleted');
+            Session::flash('success', 'Class Deleted!');
             return redirect('/admin/lessons');
         }
     }

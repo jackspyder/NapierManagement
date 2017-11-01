@@ -1,9 +1,10 @@
 @extends('master')
 
-@yield('title')
+@section('title')
+    Subject List
+@endsection
 
 @section('content')
-
     <div class="row justify-content-center">
         <div class="col-10">
             <!-- will be used to show any messages -->
@@ -30,29 +31,40 @@
         <div class="col-10">
             <div class="card">
                 <div class="card-header">
-                    <i class="fa fa-align-justify"></i> Lesson List
+                    <i class="fa fa-align-justify"></i> Subject List
                 </div>
                 <div class="card-block">
                     <table class="table table-bordered table-striped table-sm">
                         <thead>
                         <tr>
-                            <th>Subject Title</th>
-                            <th>Venue Name</th>
-                            <th>Start Date</th>
-                            <th>Capacity</th>
-                            <th>Spaces Left</th>
+                            <th>Title</th>
+                            <th>price</th>
+                            <th>duration</th>
+                            <th>Active Classes</th>
+                            <th>Enrolled Members</th>
                             <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($user->lessons as $lesson)
+                        @foreach($subjects as $subject)
                             <tr>
-                                <td>{{ $lesson->subject->title }}</td>
-                                <td>{{ $lesson->venue->name }}</td>
-                                <td>{{ $lesson->start_date }}</td>
-                                <td>{{ $lesson->capacity }}</td>
-                                <td>{{ $lesson->spaces_left }}</td>
-                                <td><a href="/classes/{{ $lesson->id }}" class="btn-sm btn-success">View</a></td>
+                                <td>{{ $subject->title }}</td>
+                                <td>£{{ $subject->price / 100 }}</td>
+                                <td>{{ $subject->duration }}</td>
+                                <td>{{ $subject->lessons->count() }}</td>
+                                <td>
+
+                                    @foreach($subject->lessons as $lesson )
+
+                                        @continue($users = $users + $lesson->users->count())
+
+                                    @endforeach
+                                        {{ $users }}
+                                    <?php $users = 0; ?>
+
+                                </td>
+                                <td><a href="/admin/subjects/{{ $subject->id }}" class="btn-sm btn-success">View</a>
+                                </td>
                             </tr>
                         @endforeach
 
@@ -64,4 +76,4 @@
         <!--/.col-->
     </div>
     <!--/.row-->
-@endsection
+@stop

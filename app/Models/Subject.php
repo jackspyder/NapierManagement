@@ -1,8 +1,11 @@
 <?php
+
 namespace App\Models;
+
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-class Course extends Model
+
+class Subject extends Model
 {
     use SoftDeletes;
     protected $fillable = [
@@ -11,14 +14,22 @@ class Course extends Model
         'title',
         'qualification',
         'awarded_by',
-        'overview',
+        'summary',
         'description',
-        'who_for',
-        'requirements',
-        'career_path'
     ];
+
     public function lessons()
     {
         return $this->hasMany(Lesson::class);
     }
+
+    public function venues()
+    {
+        return $this->hasManyThrough(Venue::class, Lesson::class);
+    }
+
+//    public function users()
+//    {
+//        return $this->hasManyThrough(User::class, Lesson::class);
+//    }
 }

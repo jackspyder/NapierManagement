@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Lesson;
+use App\Models\User;
+use App\Models\Venue;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
-use App\Models\Course;
+use App\Models\Subject;
 use Illuminate\Support\Facades\Session;
 
-class CoursesController extends Controller
+class SubjectsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +19,10 @@ class CoursesController extends Controller
      */
     public function index()
     {
-        $courses = Course::all();
-        return view('courses.index', compact('courses'));
+        $subjects = Subject::all();
+        $users = 0; //this is to initialise the count on the view, dont delete it.
+
+        return view('subjects.index', compact('subjects', 'users'));
     }
 
     /**
@@ -26,7 +32,7 @@ class CoursesController extends Controller
      */
     public function create()
     {
-        return view('courses.create');
+        return view('subjects.create');
     }
 
     /**
@@ -44,19 +50,16 @@ class CoursesController extends Controller
             'title' => 'required',
             'qualification' => 'required',
             'awarded_by' => 'required',
-            'overview' => 'required',
+            'summary' => 'required',
             'description' => 'required',
-            'who_for' => 'required',
-            'requirements' => 'required',
-            'career_path' => 'required'
         ]);
 
 
-        $course = Course::create($request->all());
+        $subject = Subject::create($request->all());
 
-        Session::flash('message', 'Successfully created Course!');
-        $course->save();
-        return redirect('/admin/courses');
+        Session::flash('success', 'Successfully created new Subject!');
+        $subject->save();
+        return redirect('/admin/subjects');
     }
 
     /**
@@ -67,8 +70,17 @@ class CoursesController extends Controller
      */
     public function show($id)
     {
-        $course = Course::findOrFail($id);
-        return view('courses.show', compact('course'));
+        $subject = Subject::findOrFail($id);
+
+        $venues = new Collection();
+
+        foreach($subject->lessons as $lesson){
+            $temp = Venue::findorFail($lesson->venue_id);
+
+            $venues->push($temp);
+        }
+
+        return view('subjects.show', compact('subject', 'venues'));
     }
 
     /**
@@ -79,9 +91,9 @@ class CoursesController extends Controller
      */
     public function edit($id)
     {
-        $course = Course::findOrFail($id);
+        $subject = Subject::findOrFail($id);
 
-        return view('courses.edit', compact('course'));
+        return view('subjects.edit', compact('subject'));
     }
 
     /**
@@ -93,7 +105,7 @@ class CoursesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $course = Course::findOrFail($id);
+        $subject = Subject::findOrFail($id);
 
         $this->validate(request(), [
             'price' => 'numeric|required',
@@ -101,18 +113,16 @@ class CoursesController extends Controller
             'title' => 'required',
             'qualification' => 'required',
             'awarded_by' => 'required',
-            'overview' => 'required',
+            'summary' => 'required',
             'description' => 'required',
-            'who_for' => 'required',
-            'requirements' => 'required',
-            'career_path' => 'required'
+
         ]);
 
-        $course->update($request->all());
+        $subject->update($request->all());
 
-        Session::flash('message', 'Successfully updated Course!');
-        $course->save();
-        return redirect('/admin/courses');
+        Session::flash('success', 'Successfully updated Subject!');
+        $subject->save();
+        return redirect()->back();
     }
 
     /**
@@ -123,16 +133,16 @@ class CoursesController extends Controller
      */
     public function destroy($id)
     {
-        $course = Course::findOrFail($id);
+        $subject = Subject::findOrFail($id);
 
-        if ($course->lessons()->count() > 0) {
-            Session::flash('message', 'You cannot delete a course in use!');
-            return redirect('/admin/courses');
+        if ($subject->lessons()->count() > 0) {
+            Session::flash('warning', 'You cannot delete a subject in use!');
+            return redirect()->back();
         } else {
 
-            $course->delete();
-            Session::flash('flash', 'Course Deleted');
-            return redirect('/admin/courses');
+            $subject->delete();
+            Session::flash('success', 'Subject Deleted!');
+            return redirect('/admin/subjects');
         }
     }
 }

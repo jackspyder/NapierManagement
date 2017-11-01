@@ -1,36 +1,11 @@
-<!--
- * CoreUI - Open Source Bootstrap Admin Template
- * @version v1.0.0-alpha.6
- * @link http://coreui.io
- * Copyright (c) 2017 creativeLabs Łukasz Holeczek
- * @license MIT
- -->
-<!DOCTYPE html>
-<html lang="en">
+@extends('master')
 
-<head>
+@section('title')
+    Login
+@endsection
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="CoreUI Bootstrap 4 Admin Template">
-    <meta name="author" content="Lukasz Holeczek">
-    <meta name="keyword" content="CoreUI Bootstrap 4 Admin Template">
-    <!-- <link rel="shortcut icon" href="assets/ico/favicon.png"> -->
+@section('content')
 
-    <title>CoreUI Bootstrap 4 Admin Template</title>
-
-    <!-- Icons -->
-    <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/simple-line-icons.css') }}" rel="stylesheet">
-
-    <!-- Main styles for this application -->
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-
-</head>
-
-<body class="app flex-row align-items-center">
-<div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card-group mb-0">
@@ -83,7 +58,7 @@
 
                             <div class="form-group">
                                 <div class="col-md-8 col-md-offset-4">
-                                    <button type="submit" class="btn btn-primary">
+                                    <button type="submit" class="btn btn-success">
                                         Login
                                     </button>
 
@@ -98,14 +73,17 @@
                     <div class="card-block text-center">
                         <div>
                             <h2>Sign up</h2>
-                            <p>Don't have an account? Click the Register Now! Button below to go to our registration page, or try one of the social media login options below!</p>
-                            <a href="/register" type="button" class="btn btn-primary active">Register Now!</a>
+                            <p>Don't have an account? Click the Register Now! Button below to go to our registration
+                                page, or try one of the social media login options below!</p>
+                            <a href="/register" type="button" class="btn btn-primary">Register Now!</a>
                         </div>
                     </div>
 
                     <div class="card-footer">
-                        <div class="row">
+                        <div class="row justify-content-center">
                             <h4 class="card-title text-center">Use Social Media Login!</h4>
+                        </div>
+                        <div class="row">
                             <div class="col-6">
                                 <a href="{{ url('/login/facebook') }}" class="btn btn-block btn-facebook">
                                     <span>Facebook</span>
@@ -134,14 +112,4 @@
             </div>
         </div>
     </div>
-</div>
-
-<!-- Bootstrap and necessary plugins -->
-<script src="{{ asset('jquery.min.js') }}"></script>
-<script src="{{ asset('js/tether.min.js') }}"></script>
-<script src="{{ asset('js/bootstrap.min.js') }}"></script>
-
-
-</body>
-
-</html>
+@stop

@@ -43,14 +43,20 @@ class RegisterController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
+     * @param  array $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
     {
         return Validator::make($data, [
             'name' => 'required|string|max:255',
+            'dob' => 'required|date',
+            'website' => 'nullable',
             'email' => 'required|string|email|max:255|unique:users',
+            'address' => 'nullable',
+            'post_code' => 'nullable|alpha_num',
+            'occupation' => 'nullable',
+            'company' => 'nullable',
             'password' => 'required|string|min:6|confirmed',
         ]);
     }
@@ -58,17 +64,30 @@ class RegisterController extends Controller
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
+     * @param  array $data
      * @return \App\User
      */
     protected function create(array $data)
     {
-        return User::create([
+
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'is_admin' => false,
         ]);
+
+        $profile = Profile::create([
+            'website' => $data['website'],
+            'address' => $data['address'],
+            'post_code' => $data['post_code'],
+            'dob' => $data['dob'],
+            'occupation' => $data['occupation'],
+            'company' => $data['company'],
+        ]);
+
+        $user->profile()->save($profile);
+        return $user;
 
     }
 }

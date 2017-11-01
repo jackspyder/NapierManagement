@@ -23,9 +23,9 @@ class Lesson extends Model
         return $this->belongsTo(Venue::class);
     }
 
-    public function course()
+    public function subject()
     {
-        return $this->belongsTo(Course::class);
+        return $this->belongsTo(Subject::class);
     }
 
     public function users()

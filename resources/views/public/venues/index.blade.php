@@ -1,13 +1,13 @@
-@extends('public')
+@extends('master')
 
 @section('title')
-    Public Test
+    Venue List
 @endsection
 
 @section('content')
 
-    <div class="row">
-        <div class="col-lg-12">
+    <div class="row justify-content-center">
+        <div class="col-10">
             <div class="card">
                 <div class="card-header">
                     <i class="fa fa-align-justify"></i> Venue List
@@ -19,7 +19,7 @@
                             <th>Name</th>
                             <th>City</th>
                             <th>Post Code</th>
-                            <th>Courses Running</th>
+                            <th>Classes Running</th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -39,6 +39,7 @@
                 </div>
             </div>
         </div>
-        <!--/.col-->
+    </div>
+    <!--/.col-->
 
 @stop
