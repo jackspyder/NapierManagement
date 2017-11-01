@@ -127,42 +127,36 @@
 
     <div class="row justify-content-center">
         <div class="col-10">
-            <div class="card">
-                <div class="card-header">
-                    <i class="fa fa-align-justify"></i> Lesson List
-                </div>
-                <div class="card-block">
-                    <table class="table table-bordered table-striped table-sm">
-                        <thead>
-                        <tr>
-                            <th>Subject Title</th>
-                            <th>Venue Name</th>
-                            <th>City</th>
-                            <th>Start Date</th>
-                            <th>Capacity</th>
-                            <th>Spaces Left</th>
-                            <th>Members Enrolled</th>
-                            <th>Action</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @foreach($subject->lessons as $lesson)
-                            <tr>
-                                <td>{{ $lesson->subject->title }}</td>
-                                <td>{{ $lesson->venue->name }}</td>
-                                <td>{{ $lesson->venue->city }}</td>
-                                <td>{{ $lesson->start_date }}</td>
-                                <td>{{ $lesson->capacity }}</td>
-                                <td>{{ $lesson->spaces_left }}</td>
-                                <td>{{ $lesson->users->count() }}</td>
-                                <td><a href="/admin/lessons/{{ $lesson->id }}" class="btn-sm btn-success">View</a></td>
-                            </tr>
-                        @endforeach
+            <h3>Active Classes List</h3>
+            <table class="table table-hover table-outline table-striped table-bordered">
+                <thead class="thead-default">
+                <tr>
+                    <th>Subject Title</th>
+                    <th>Venue Name</th>
+                    <th>City</th>
+                    <th>Start Date</th>
+                    <th>Capacity</th>
+                    <th>Spaces Left</th>
+                    <th>Members Enrolled</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($subject->lessons as $lesson)
+                    <tr>
+                        <td>{{ $lesson->subject->title }}</td>
+                        <td>{{ $lesson->venue->name }}</td>
+                        <td>{{ $lesson->venue->city }}</td>
+                        <td>{{ $lesson->start_date }}</td>
+                        <td>{{ $lesson->capacity }}</td>
+                        <td>{{ $lesson->spaces_left }}</td>
+                        <td>{{ $lesson->users->count() }}</td>
+                        <td><a href="/admin/lessons/{{ $lesson->id }}" class="btn-sm btn-success">View</a></td>
+                    </tr>
+                @endforeach
 
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+                </tbody>
+            </table>
         </div>
     </div>
 @stop

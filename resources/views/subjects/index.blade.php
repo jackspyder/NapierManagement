@@ -29,54 +29,45 @@
 
     <div class="row justify-content-center">
         <div class="col-10">
-            <div class="card">
-                <div class="card-header">
-                    <i class="fa fa-align-justify"></i> Subject List
-                </div>
-                <div class="card-block">
-                    <table class="table table-bordered table-striped table-sm">
-                        <thead>
-                        <tr>
-                            <th>Title</th>
-                            <th>price</th>
-                            <th>duration</th>
-                            <th>Active Classes</th>
-                            <th>Enrolled Members</th>
-                            <th>Action</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @foreach($subjects as $subject)
-                            <tr>
-                                <td>{{ $subject->title }}</td>
-                                <td>£{{ $subject->price / 100 }}</td>
-                                <td>{{ $subject->duration }}</td>
-                                <td>{{ $subject->lessons->count() }}</td>
-                                <td>
+            <h3>Subjects List</h3>
+            <table class="table table-hover table-outline table-striped table-bordered">
+                <thead class="thead-default">
+                <tr>
+                    <th>Title</th>
+                    <th>price</th>
+                    <th>duration</th>
+                    <th>Active Classes</th>
+                    <th>Enrolled Members</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($subjects as $subject)
+                    <tr>
+                        <td>{{ $subject->title }}</td>
+                        <td>£{{ $subject->price / 100 }}</td>
+                        <td>{{ $subject->duration }}</td>
+                        <td>{{ $subject->lessons->count() }}</td>
+                        <td>
 
-                                    @foreach($subject->lessons as $lesson )
+                            @foreach($subject->lessons as $lesson )
 
-                                        @continue($users = $users + $lesson->users->count())
+                                @continue($users = $users + $lesson->users->count())
 
-                                    @endforeach
-                                        {{ $users }}
-                                    <?php $users = 0; ?>
+                            @endforeach
+                            {{ $users }}
+                            <?php $users = 0; ?>
 
-                                </td>
-                                <td class="text-center"><a href="/admin/subjects/{{ $subject->id }}" class="btn-sm btn-primary">View</a>
-                                </td>
-                            </tr>
-                        @endforeach
+                        </td>
+                        <td class="text-center"><a href="/admin/subjects/{{ $subject->id }}" class="btn-sm btn-primary">View</a>
+                        </td>
+                    </tr>
+                @endforeach
 
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+                </tbody>
+            </table>
         </div>
-        <!--/.col-->
-
     </div>
-
     <div class="row justify-content-center">
 
         <div class="col-10">
