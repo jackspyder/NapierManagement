@@ -18,7 +18,7 @@
         "barryvdh/laravel-debugbar": "^3.1",
         "filp/whoops": "~2.0",
         "fzaninotto/faker": "~1.4",
-        "mockery/mockery": "0.9.*",
+        "mockery/mockery": "1.2.*",
         "phpunit/phpunit": "~8.1"
     },
     "autoload": {
